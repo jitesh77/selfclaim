@@ -1,0 +1,240 @@
+<!DOCTYPE html>
+<html>
+<head> 
+	<title>Proforma</title>
+	<% include ../partials/head %>
+	<link rel="stylesheet" type="text/css" href="css/proforma.css">
+</head>
+<body>
+	<div class="ui menu" id="menu">
+		<div id="menuLogo">
+			<a href="https://sureclaim.in/">
+				<img src="images/logo.png" alt="SureClaim" />
+			</a>
+		</div>
+		<div class="right menu">
+			<div class="item">
+				<a href="admin">Admin Dahsboard</a>
+			</div>
+			<div class="item">Hi <%= name %> !!</div>
+			<div class="item">
+				<a href="logout">Logout</a>
+			</div>
+		</div>
+	</div>
+	<div class="proforma-main">
+		<h2></h2>
+		<div class="ui basic segment">
+			<h3 class="ui header">
+				Update Proforma
+			</h3>
+			<div class="ui stackable grid">
+				<div class="eight wide column">
+					<div class="ui form" id="createProforma">
+						<div id="userSection">
+							<h3>Patient</h3>
+							<div class="field">
+								<label>Patient Name<sup class="requiredStar">*</sup></label>
+								<input type="text" data-field="patientName" placeholder="" disabled="enabled" />
+								<p id="patientNameError" class="error-field"></p>
+							</div>
+							<div class="field">
+								<label>Contact Person Name</label>
+								<input type="text" data-field="userName" placeholder="" disabled="" />
+								<p id="userNameError" class="error-field"></p>
+							</div>
+							<div class="field">
+								<label>Mobile Number<sup class="requiredStar">*</sup></label>
+								<input type="number" data-field="userMobile" placeholder="" disabled="" />
+								<p id="userMobileError" class="error-field"></p>
+							</div>
+							<div class="field">
+								<label>E-mail</label>
+								<input type="text" data-field="userEmail" placeholder="" disabled="false" />
+								<p id="userEmailError" class="error-field"></p>
+							</div>
+						</div>
+
+						<div id="serviceSection">
+							<div class="services-section">
+								<h3>Services</h3>
+								<div id="serviceSectionTable">
+									<div class="table-responsive">
+										<table class="ui single line unstackable selectable striped celled table" id="proformaServicesTable">
+											<thead>
+												<tr>
+													<td>S.No</td>
+													<td>Service Name</td>
+													<td>Qty.</td>
+													<td>Price</td>
+													<td>Delete</td>
+												</tr>
+											</thead>
+											<tbody>
+											</tbody>
+										</table>
+									</div>
+									<div class="ui success message">
+										<div>
+											Total no. of Services: <b><span id="totalNumberServices">0</span></b>
+											&nbsp;&nbsp;&nbsp;&nbsp;
+			                                Total Price: <b><span id="totalServicesPrice">0</span></b>
+			                            </div>
+			                        </div>
+								</div>
+								<div class="two fields">
+									<div class="field">
+										<label>Service Name<sup class="requiredStar">*</sup></label>
+										<select name="serviceInput" class="serviceNameSelect" id="serviceNameSelect"  onchange="$('#servicePrice').val($('.serviceNameSelect').val())">
+										</select>
+										<p id="serviceNameError" class="error-field"></p>
+									</div>
+									<div class="field">
+										<label>Qty.<sup class="requiredStar">*</sup></label>
+										<input id="serviceQty" type="number" data-field="serviceQty" placeholder="" />
+										<p id="serviceQtyError" class="error-field"></p>
+									</div>
+									<div class="field">
+										<label>Price<sup class="requiredStar">*</sup></label>
+										<input id="servicePrice" type="number" data-field="servicePrice" placeholder="" />
+										<p id="servicePriceError" class="error-field"></p>
+									</div>
+								</div>
+								<button class="ui active button" id="addProformaService">
+									<i class="icon plus"></i>
+									Add Service
+								</button>
+							</div>
+
+							<div class="payments-section">
+								<h3>Payments</h3>
+								<div id="paymentsTable">
+									<div class="table-responsive">
+										<table class="ui single line unstackable selectable striped celled table" id="proformaPaymentsTable">
+											<thead>
+												<tr>
+													<td>S.No</td>
+													<td>Amount</td>
+													<td>Payment Mode</td>
+													<td>Payment Date</td>
+													<td>Received By</td>
+													<td>Delete</td>
+												</tr>
+											</thead>
+											<tbody>
+											</tbody>
+										</table>
+									</div>
+									<div class="ui success message">
+										<div>
+											Total no. of Payments: <b><span id="totalNumberPayments">0</span></b>
+											&nbsp;&nbsp;&nbsp;&nbsp;
+			                                Total Payment: <b><span id="totalPayments">0</span></b>
+			                            </div>
+			                        </div>
+								</div>
+								<div class="two fields">
+									<div class="field">
+										<label>Payment Amount<sup class="requiredStar">*</sup></label>
+										<input id="" type="number" data-field="paymentAmount" placeholder="" />
+										<p id="paymentAmountError" class="error-field"></p>
+									</div>
+									<div class="field">
+										<label>Payment Date<sup class="requiredStar">*</sup></label>
+										<input id="" type="date" data-field="paymentDate" placeholder="" />
+										<p id="paymentDateError" class="error-field"></p>
+									</div>
+								</div>
+								<div class="two fields">
+									<div class="field">
+										<label>Payment Mode<sup class="requiredStar">*</sup></label>
+										<select id="selectedPaymentMode">
+											<option value="0" selected='true' disabled='disabled'>Select Payment Mode</option>
+											<option value="Cash">Cash</option>
+											<option value="Cheque">Cheque</option>
+											<option value="NEFT">NEFT</option>
+											<option value="IMPS">IMPS</option>
+											<option value="Razorpay">Razorpay</option>
+											<option value="PayTM">PayTM</option>
+										</select>
+										<p id="paymentModeError" class="error-field"></p>
+									</div>
+									<div class="field">
+										<label>Received By:<sup class="requiredStar">*</sup></label>
+										<input id="" type="text" data-field="receivedBy" placeholder="" />
+									</div>
+								</div>
+								<button class="ui active button" id="addProformaPayment">
+									<i class="icon plus"></i>
+									Add Payment
+								</button>
+							</div>
+							<div class="">
+								<div class="field">
+									<label>Proforma Comment</label>
+									<input type="text" data-field="proformaComment" placeholder="Proforma Name Or Comment" />
+									<p id="proformaCommentError" class="error-field"></p>
+								</div>
+							</div>
+
+							<div class="two fields" style="margin-top: 3%;">
+								<div class="field">
+									<label>Proforma Date<sup class="requiredStar">*</sup></label>
+									<input type="date" data-field="proformaDate" placeholder="" />
+									<p id="proformaDateError" class="error-field"></p>
+								</div>
+							</div>
+
+							<div class="two fields">
+								<div class="field">
+									<label>Discount</label>
+									<div class="ui action input">
+										<input type="number" data-field="discountAmount" placeholder="Discount Amount">
+										<button id="discountAmountButton" class="ui button">Apply</button>
+									</div>
+									<p id="discountAmountError" class="error-field"></p>
+									<div class="success-message" id="discountMessage">
+										<p>Discount Applied successfully.</p>
+			                        </div>
+								</div>
+							</div>
+
+							<div class="two fields">
+								<div class="field">
+									<label>Write-off Amount</label>
+									<div class="ui action input">
+										<input type="number" data-field="writeOffAmount" placeholder="Write-off Amount">
+										<button id="writeOffAmountButton" class="ui button">Apply</button>
+									</div>
+									<p id="writeOffAmountError" class="error-field"></p>
+									<div class="success-message" id="writeOffMessage">
+										<p>Write-off Applied successfully.</p>
+			                        </div>
+								</div>
+							</div>
+							<div class="proforma-total">
+								<div class="ui success message">
+									<div class="header">Total Amount</div>
+									<p>Proforma Amount: <b><span id="proformaAmountFinal"></span></b></p>
+									<p>Payment: <b><span id="proformaPaymentFinal"></span></b></p>
+									<p>Discount Amount: <b><span id="discountAmountFinal">0</span></b></p>
+									<p>Write-off Amount: <b><span id="witeOffAmountFinal">0</span></b></p>
+								</div>
+							</div>
+							<button class="ui primary button" id="createProformaButton">
+								<i class="icon file alternate"></i>
+								Save Proforma
+							</button>
+							<p id="proformaErrors" class="error-field"></p>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+</body>
+<script type="text/javascript">
+	var proformaData = <%- JSON.stringify(proformaData) %>;
+</script>
+<script src="js/proforma-edit.js"></script>
+</html>

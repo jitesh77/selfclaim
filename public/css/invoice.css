@@ -1,0 +1,113 @@
+/**
+ * @author Manoj Kumar<manojswami600@gmail.com>
+ */
+ 
+@media print {
+	* {
+		-webkit-print-color-adjust: exact !important;
+		color-adjust: exact !important;
+	}
+}
+
+body {
+	font-size: 15px !important;
+}
+
+.logo-image{
+	padding-left: 3%;
+}
+
+.left-column {
+	padding-left: 5% !important;
+	width: 70% !important;
+}
+
+.left-cloumn h1 {
+	font-size: 2em;
+}
+
+.right-column {
+	padding-right: 5% !important;
+	width: 30% !important;
+	text-align: right;
+}
+
+.right-column h1 {
+	font-size: 2.5em;
+}
+
+.left-column-bill {
+	padding-left: 5% !important;
+	width: 49% !important;
+}
+
+.left-column-bill h3 {
+	margin-bottom: 0;
+}
+
+.bill-label {
+	width: 25% !important;
+	text-align: right;
+}
+
+.bill-label p {
+	font-weight: bold;
+}
+
+.right-column-number {
+	width: 25% !important;
+	padding-right: 5% !important;
+}
+
+.invoice-table {
+	padding-right: 4% !important;
+	padding-left: 3% !important;
+	margin-top: 3%;
+}
+
+.invoice-table table th {
+	background: black !important;
+	color: white !important;
+	border: 1px solid #505050;
+}
+
+.invoice-table table tr {
+	line-height: 1em !important;
+}
+
+.labels {
+	padding-left: 4% !important;
+	padding-right: 5% !important;
+}
+
+.label0 {
+	width: 59% !important;
+}
+
+.label1 {
+	width: 20% !important;
+	text-align: right;
+}
+
+.label2 {
+	width: 20% !important;
+	padding-left: 4% !important;
+}
+
+.labels p {
+	margin: 0 0 0.3em !important;
+}
+
+.total-amount {
+	font-weight: bold;
+	font-size: 17px
+}
+
+.footer-labels {
+	padding-left: 4%;
+}
+
+.footer-sign {
+	text-align: right;
+	padding-right: 7% !important;
+}

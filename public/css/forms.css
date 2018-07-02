@@ -1,0 +1,164 @@
+/**
+ * @author Manoj Kumar<manojswami600@gmail.com>
+ */
+
+@media print {
+ 	.pagebreak { 
+ 		page-break-before: always; 
+ 		padding-bottom: 3%;
+ 	}            
+ 	.SelfClaim {
+ 		display: block !important;
+ 	}@page { size: portrait; }
+}
+
+span.fieldValue {
+ 	font-weight: bold;
+ 	border: 1px solid #afaeae;
+ 	padding: 1px 5px;
+ 	min-height: 10px;
+ 	display: inline-flex;
+ 	width: 55%;
+}
+.header-logo {
+	width: 10%;
+	position: relative;
+	float: left;
+	margin-bottom: -2px;
+}
+.header-title {
+	width: 90%;
+	position: relative;
+	float: right;
+	text-align: center;
+	padding-top: 1%;
+}
+.e-meditek-logo {
+	padding-left: 2%;
+}
+.header-p {
+	margin-left: -11%;
+	font-weight: bold;
+	margin-top: 0px;
+}
+.group { 
+	display: table;
+	width: 100%;
+	margin: 0 auto;
+} 
+.item {
+	display: table-cell;
+}
+.text { 
+	font-weight: bold;
+	white-space: nowrap;
+	width: 1%;padding: 0 2px;
+}
+.line {
+	border-bottom: 1px solid #000;
+	position: relative;
+	top: -.5em;
+}
+.details-section {
+	margin-bottom: -1%;
+}
+.table-head {
+	font-weight: bold;
+}
+span.fieldValue {
+	font-weight: bold;
+	font-size: 11px;
+}
+.address {
+	padding-left: 2%;
+	width: 98% !important;
+}
+body {
+	font-weight: unset;
+}
+.CheckboxBill {
+	vertical-align: middle;
+	margin: unset !important;
+	height: 11px;
+}
+.new-label {
+	width: 48% !important;
+}
+.full-label {
+	width: 98% !important;
+}
+.label1 {
+	width: 22% !important;
+}
+.CheckboxBill {
+	vertical-align: middle;
+	margin: unset !important;
+	height: 11px;
+}
+.FilledCheckbox {
+	margin-right: 15px !important;
+}
+.FilledCheckboxLeft {
+	margin-left: 15px !important;
+}
+.injuryLabel {
+	width: 70% !important;
+}
+.medicoLabel {
+	width: 25% !important;
+}
+.medicine-system {
+	margin: unset !important;
+	width: 50%;
+	height: 1vh;
+	vertical-align: middle;
+}
+.irdaBankDetails, .irdaDeclaration {
+	padding-top: 20px;
+}
+.first {
+	width: 60% !important;
+	float: left;
+}
+.second {
+	width: 38% !important;
+}
+.SelfClaim {
+	display: none;
+}
+.SelfClaim {
+	position: relative;
+}
+.SelfClaim p {
+	position: fixed; 
+	bottom: 0; 
+	width:100%;
+	text-align: center;
+	font-weight: bold;
+}
+.hiddenTable {
+	display: block !important;
+}
+.hiddenTab {
+	display: none;
+}
+.dateFooter {
+	width: 20% !important;
+}
+.dateFooterBox {
+	width: 50% !important;
+}
+.placeFooter {
+	width: 20% !important;
+}
+.placeFooterBox {
+	width: 70% !important;
+}
+.signFooter {
+	width: 50% !important;
+	float: right !important;
+	text-align: right !important;
+}
+.signFooterBox {
+	height: 3vh !important;
+}

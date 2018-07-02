@@ -1,0 +1,38 @@
+[
+ {
+   "mobile": "7845803074",
+   "name": "Manoj Kumar",
+   "gender": "male",
+   "email": "manojswami600@gmail.com",
+   "type": "admin",
+   "password": "p@SSw0rd",
+   "organisation": "SureClaim"
+ },
+ {
+   "mobile": "9036003110",
+   "name": "Anuj Jindal",
+   "gender": "male",
+   "email": "anuj@sureclaim.in",
+   "type": "admin",
+   "password": "p@SSw0rd",
+   "organisation": "SureClaim"
+ },
+ {
+   "mobile": "9742131131",
+   "name": "Varun Kansal",
+   "gender": "male",
+   "email": "varun@sureclaim.in",
+   "type": "admin",
+   "password": "p@SSw0rd",
+   "organisation": "SureClaim"
+ },
+ {
+   "mobile": "7206479844",
+   "name": "Varun Kumar",
+   "gender": "male",
+   "email": "varunon99@gmail.com",
+   "type": "admin",
+   "password": "p@SSw0rd",
+   "organisation": "SureClaim"
+ }
+]

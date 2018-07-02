@@ -1,0 +1,208 @@
+/**
+ * @author Manoj Kumar<manojswami600@gmail.com>
+ */
+
+#home .ui.stackable.grid {
+    margin-top: 0;
+}
+
+@media screen and (max-width: 450px) {
+
+	.menu-head-nav {
+		width: 15% !important;
+		float: left;
+		padding-top: 4% !important;
+        padding-left: 1%;
+	}
+}
+
+
+@media screen and (max-width: 765px) {
+	.home-menu {
+		display: none !important;
+	}
+
+	.mobile-menu {
+		display: block !important;
+	}
+
+	.home-page-table-tr {
+		height: 40vh;
+	}
+
+	.home-page-table-tr th{
+		width: 25% !important;
+		float: left;
+	}
+
+	.mobile-menu-logo {
+		width: 25%;
+	}
+
+	.menu-head-nav {
+		width: 15% !important;
+		float: left;
+		padding-top: 2%;
+    	padding-left: 1%;
+	}
+
+	.menu-head-nav span {
+		font-size:25px;
+		cursor:pointer;
+	    background: #3d56bc;
+	    padding: 0px 5px;
+	    color: white;
+	    border-radius: 3px;
+	}
+
+	.menu-head-image {
+		width: 50% !important;
+		float: left;
+		text-align: center;
+	}
+
+	.menu-head-text {
+		width: 35% !important;
+		float: left;
+		padding-top: 2%;
+		padding-right: 2%;
+		text-align: right;
+	}
+
+	.tab {
+		display: none;
+	}
+
+	.tab-content{
+		width: 100% !important;
+	}
+
+	.home-page-table-tr td {
+		width: 25% !important;
+		float: left;
+	}
+
+	.icon {
+		color: #3d56bc;
+	}
+
+	.tab-content {
+		padding-top: 15% !important;
+	}
+
+}
+@media screen and (max-height: 450px) {
+	.sidenav {
+		padding-top: 15px;
+	}
+	
+	.sidenav a {
+		font-size: 18px;
+	}
+
+	.tab-content {
+		padding-top: 15%;
+	}
+}
+
+.new-section {
+	text-align: center;
+	margin-top: 5% !important;
+}
+
+.header-bar {
+	position: fixed;
+    width: 100%;
+    background: white;
+    z-index: 100;
+    border-bottom: 1px solid #3954bb52;
+}
+
+.mobile-menu {
+	display: none;
+}
+
+.tab button {
+	display: block;
+	background-color: inherit;
+	color: black;
+	padding: 22px 16px;
+	width: 100%;
+	border: none;
+	outline: none;
+	text-align: left;
+	cursor: pointer;
+	transition: 0.3s;
+	font-size: 17px;
+}
+
+.tab button:hover {
+	background-color: #ddd;
+} 
+
+.tab button.active {
+	background-color: #ccc;
+}
+
+.tab-content {
+	float: left;
+	padding: 0px 12px;
+	border: 1px solid #ccc;
+	width: 78%;border-left: none;
+	height: 100%;
+}
+
+.tab {
+	float: left;
+	border: 1px solid #ccc;
+	background-color: #f1f1f1;
+	width: 20%;margin-left: 1%;
+	height: 100%;
+}
+
+.sidenav {
+	height: 100%;
+	width: 0;
+	position: fixed;
+	top: 0;
+	left: 0;
+	background: #e2e2e2;
+	overflow-x: hidden;
+	transition: 0.5s;
+	z-index: 1000;
+}
+
+.sidenav a {
+	padding: 8px 8px 8px 15px;
+	text-decoration: none;
+	font-size: 19px;
+	color: black;
+	display: block;
+	transition: 0.3s;
+}
+
+.sidenav a:hover {
+	color: #f1f1f1;
+}
+
+.sidenav .closebtn {
+	position: absolute;
+	color: #3853ba;
+	font-weight: bold;
+	top: 0;
+	right: 15px;
+	font-size: 36px;
+	margin-left: 50px;
+}
+
+.textarea-field {
+	width: 50% !important;
+}
+
+.sidenav-logo {
+	width: 250px !important;
+    margin-top: 0;
+    background: white;
+    border-bottom: 1px solid #3e57bc66;
+    margin-bottom: 15px;
+}

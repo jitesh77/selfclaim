@@ -1,0 +1,75 @@
+{
+  "development": {
+    "username": "root",
+    "password": "Educated77@",
+    "database": "sureserve",
+    "host": "localhost",
+    "dialect": "mysql",
+    "superSecret": "mav3rickSSur3S3rv3",
+    "gmailAccount": {
+      "user": "sureservetech@gmail.com",
+      "password": "Sur3S3rv3",
+      "toEmails": ["sureservetech@gmail.com"]
+    },
+    "ssEmailAccount": {
+      "user": "hello@sureserve.in",
+      "password": "Hello@ss@123",
+      "host": "md-13.webhostbox.net"
+    },
+    "otpKeys": {
+      "ADMIN": "_Admin_OTP",
+      "USER": "_User_OTP",
+      "NEW_USER": "_New_User_OTP"
+    },
+    "exotelApi": {
+      "smsUrl":
+        " https://anujjindal2:8603f64685a962421443ed7ca0f1b670cde6eb99@api.exotel.com/v1/Accounts/anujjindal2/Sms/send.json",
+      "otpTemplate":
+        "%d is your One Time Password for login at SureServe. Don't share this with anyone.",
+      "exoPhone": "LM-SSERVE",
+      "welcomeMessageTemplate":
+        "Hi %s,Thank you for registering; Your account has been activated"
+    },
+    "sureclaimAdminEmails": [
+      "anuj@sureserve.in",
+      "varun@sureserve.in",
+      "anuj@sureclaim.in",
+      "varun@sureclaim.in"
+    ],
+    "baseUrl": "/selfclaim"
+  },
+  "production": {
+    "username": "root",
+    "password": "hiThere!!",
+    "database": "sureserve",
+    "host": "localhost",
+    "dialect": "mysql",
+    "superSecret": "mav3rickSSur3S3rv3",
+    "gmailAccount": {
+      "user": "sureservetech@gmail.com",
+      "password": "Sur3S3rv3",
+      "toEmails": ["sureservetech@gmail.com"]
+    },
+    "ssEmailAccount": {
+      "user": "hello@sureserve.in",
+      "password": "Hello@ss@123",
+      "host": "md-13.webhostbox.net"
+    },
+    "otpKeys": {
+      "ADMIN": "_Admin_OTP",
+      "USER": "_User_OTP",
+      "NEW_USER": "_New_User_OTP"
+    },
+    "exotelApi": {
+      "smsUrl":
+        " https://anujjindal2:8603f64685a962421443ed7ca0f1b670cde6eb99@api.exotel.com/v1/Accounts/anujjindal2/Sms/send.json",
+      "otpTemplate":
+        "%d is your One Time Password for login at SureServe. Don't share this with anyone.",
+      "exoPhone": "LM-SSERVE",
+      "welcomeMessageTemplate":
+        "Hi %s,Thank you for registering; Your account has been activated"
+    },
+    "sureclaimAdminEmails": ["anuj@sureserve.in", "varun@sureserve.in"],
+    "baseUrl": "/selfclaim"
+  }
+}

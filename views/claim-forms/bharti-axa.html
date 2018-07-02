@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Claim form preview</title>
+        <base href="/selfclaim/" />
+        <link rel="shortcut icon" href="images/favicon.ico" />
+        <link href="bower_components/jquery-toast-plugin/dist/jquery.toast.min.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="css/claimPreview.css">
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
+        <script src="js/globals.js"></script>
+        <link rel="stylesheet" type="text/css" href="css/forms.css">
+        <style type="text/css">
+        @media print {
+        .group {
+            -webkit-print-color-adjust: exact; 
+        }
+        #LongLine {
+            -webkit-print-color-adjust: exact; 
+        }
+         .Page1, .Page2, .Page3, .Page4 {
+                display: block !important;
+            }
+            .SelfClaim {
+                display: block !important;
+            }
+    }
+       .heading {
+        padding-left: 1%;
+        width: 65%;
+        height: 150px;
+        float: left;
+        
+       }
+       .heading-right {
+        width: 30%;
+        float: right;
+        text-align: right;
+        padding-right: 3%;
+       }
+       .heading-right h3 {
+        width: 80%;
+        float: right;
+       }
+       .heading-right p {
+        float: right;width: 60%;
+       }
+       .heading h2 {
+        border-bottom: 1px solid black;
+        margin-right: 1%;
+        margin-bottom: 0.5%;
+       }
+       .heading1 {
+        font-weight: bold;
+       }
+        .group { 
+            display: table;
+            width: 99%;
+            margin: 0 auto;
+            text-align: left;
+            background: #d0d0d0;
+            padding-left: 1%;
+            color: black;
+            font-size: 12px;
+            font-weight: bold;
+            padding-top: 8px;
+            padding-bottom: 8px;
+            margin-bottom: 0.5%;
+            margin-top: 2% !important;
+        } 
+        
+        .details-section {
+            margin-bottom: -1%;
+        }
+        .table-head {
+            font-weight: bold;
+        }
+        span.fieldValue {
+            font-weight: bold;
+        }
+        .address {
+            padding-left: 2%;
+        }
+        body {
+            font-weight: unset;
+            font-size: 11px !important;
+        }
+        .CheckboxBill {
+            vertical-align: middle;
+            margin: unset !important;
+            height: 11px;
+        }
+        .pagebreak { 
+            page-break-before: always; 
+        }
+        .info {
+                margin-top: 10%;
+                margin-left: 5%;
+        }
+        #LongLine {
+                width: 20px;
+                height: 150px;
+                -webkit-transform: skew(-30deg);
+                -moz-transform: skew(50deg);
+                -o-transform: skew(50deg);
+                background: #113184;
+                float: left;
+        }
+        .heading-title {
+            width: 55%;
+            }
+            .checklist{
+                width: 90% !important;
+            }
+            .NewPage {
+                padding-top: 2%;
+            }
+            .BankLabel {
+                font-weight: bold;
+            }
+            .Bank-Req {
+                font-size: 9px;
+            }
+            .Page1, .Page2, .Page3, .Page4 {
+                display: none;
+            }
+
+            .Page1{
+                padding-top: 18%;
+                font-size: 9px;
+                padding-left: 1%;             
+            }
+            .Page1 span{
+                font-weight: bold;
+            }
+            .Page2{
+                padding-top: 3%;
+                padding-left: 2%;
+            }
+            .Page2 img{
+                height: 6vh
+            }
+            .Page3{
+                padding-top: 18%;
+                padding-left: 2%;
+            }
+            .Page3 img{
+                height: 6vh
+            }
+            .Page4{
+                padding-top: 70%;
+                padding-left: 2%;
+            }
+            .Page4 img{
+                height: 6vh
+            }
+            .SelfClaim {
+                display: none;
+            }
+            .SelfClaim{
+                position: relative;
+            }
+            .SelfClaim p{
+            position: fixed; 
+            bottom: 0; 
+            width:100%; 
+            text-align: center
+            }
+</style>    
+    </head>
+    <body>
+        <div id="" class="row"> 
+            
+            <div class="heading">
+                <img src="images/logo/bharti.jpg" class="e-meditek-logo">           
+        </div>
+        <div class="heading-right">
+            <div id="LongLine"></div>
+            <h3>Bharti AXA General Insurance Company Limited</h3>
+            <p>1800-103-2292 (Toll Free)<br>
+
+            claims@bharti-axagi.co.in<br>
+            SMS <CLAIM> to 5667700<br>
+            www.bharti-axagi.co.in</p>
+            </div>
+        </div>
+ 
+        <div id="detailsOfPrimaryInsured" class="details-section">
+            <h2 class="heading-title">CLAIM FORM FOR HEALTH INSURANCE POLICIES
+            OTHER THAN TRAVEL AND PERSONAL ACCIDENT –
+            PART A TO BE FILLED IN BY THE INSURED</h2>
+            <p>The issue of this Form is not to be taken as an admission of liability</p>
+            <!-- Heading -->
+            <div class="group">
+            Important Note           
+            </div>
+            <p>Issuance of this form not to be taken as an admission of liability</p>
+            <p>Please fill this form in Block Letters and Tick the Boxes where appropriate and do not leave any column unanswered.<br>
+            If any detail or information is not readily available, please do not delay despatch of this report and such particulars may be
+            sent later.</p>
+            <!-- Heading End -->
+            <!-- Heading -->
+            <div class="group">
+            1 Details of primary insured           
+            </div>
+            <!-- Heading End -->
+               <div class="row">
+                <div class="two-column">
+                    <span class="fieldLabel">
+                        a) Policy No.:
+                    </span>
+                    <span class="fieldValue" data-field="policyNumber">
+                    </span>
+                </div>
+            </div>            
+            <div class="row">
+                <div class="two-column">
+                    <span class="fieldLabel">
+                        b) Company / TPA ID (MA ID)No:
+                    </span>
+                    <span class="fieldValue" data-field="tpaIdNo">
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        c) Name: 
+                    </span>
+                    <span class="fieldValue" data-field="policyHolderName">
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="two-column">
+                    <span class="fieldLabel">
+                        d) Address:
+                    </span>
+                    <span class="fieldValue" data-field="policyHolderAddress">
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        City:
+                    </span>
+                    <span class="fieldValue" data-field="policyHolderCity">
+                    </span>
+                </div>
+
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        State:
+                    </span>
+                    <span class="fieldValue" data-field="policyHolderState">
+                    </span>
+                </div>
+
+                
+            </div>
+
+            <div class="row" >
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        a) Pin Code:
+                    </span>
+                    <span class="fieldValue" data-field="policyHolderPin">
+                    </span>
+                </div>
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        b) Phone No.:
+                    </span>
+                    <span class="fieldValue" data-field="policyHolderPhone">
+                    </span>
+                </div>
+
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        c) Email ID:
+                    </span>
+                    <span class="fieldValue" data-field="policyHolderEmail">
+                    </span>
+                </div>
+            </div>
+        </div>
+
+<div id="detailsOfHospitalization" class="details-section">
+            <!-- Heading -->
+            <div class="group">
+            2 Details of insurance history          
+            </div>
+            <!-- Heading End -->
+            
+            <div class="row">
+                <div class="two-column">
+                    <span class="fieldLabel">
+                        a) Currently covered by any other Mediclaim / Health Insurance:
+                    </span>                    
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="two-column">
+                    <span class="fieldLabel">
+                        b)  Date of commencement of first Insurance without break:
+                    </span>                    
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="two-column">
+                    <span class="fieldLabel">
+                        c)  If yes, company name: 
+                    </span>                    
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="two-column">
+                    <span class="fieldLabel">
+                         Policy No.
+                    </span>                   
+                </div>
+            
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        Sum insured (Rs.)
+                    </span>                    
+                </div>
+            </div>
+                <div class="row">
+
+                <div class="two-column">
+                    <span class="fieldLabel">
+                        d) Have you been hospitalized in the last four years since inception of the contract?
+                    </span>                    
+                </div>
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        Date:
+                    </span>                    
+                </div>
+                
+            </div>
+
+            <div class="row">
+                
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        Diagnosis:
+                    </span>                   
+                </div>
+                               
+            </div>
+           
+        </div>
+        <div id="detailsOfInsuredPersonHospitalized" class="details-section">
+            
+            <!-- Heading -->
+            <div class="group">
+            3 Details of insured person hospitalized       
+            </div>
+            <!-- Heading End -->
+            <div class="row">
+                <div class="two-column">
+                    <span class="fieldLabel">
+                        a) Name:
+                    </span>
+                    <span class="fieldValue" data-field="patientName">
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        b) Gender:
+                    </span>
+                    <span class="fieldValue" data-field="patientGender">
+                    </span>
+                </div>
+
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        c) Age:
+                    </span>
+                    <span class="fieldValue" data-field="patientAge">
+                    </span>
+                </div>
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        d) Date of Birth:
+                    </span>
+                    <span class="fieldValue" data-field="patientDob">
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="two-column">
+                    <span class="fieldLabel">
+                        e) Relationship to Primary insured:
+                    </span>
+                    <span class="fieldValue" data-field="patientRelationshipWithPolicyHolder">
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="two-column">
+                    <span class="fieldLabel">
+                        f) Occupation:
+                    </span>
+                    <span class="fieldValue" data-field="patientOccupation">
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="two-column">
+                    <span class="fieldLabel">
+                        g) Address:
+                    </span>
+                    <span class="fieldValue" data-field="patientAddress">
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        City:
+                    </span>
+                    <span class="fieldValue" data-field="patientCity">
+                    </span>
+                </div>
+
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        State:
+                    </span>
+                    <span class="fieldValue" data-field="patientState">
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        Pin Code:
+                    </span>
+                    <span class="fieldValue" data-field="patientPinCode">
+                    </span>
+                </div>
+
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        Phone:
+                    </span>
+                    <span class="fieldValue" data-field="patientPhone">
+                    </span>
+                </div>
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        Email ID:
+                    </span>
+                    <span class="fieldValue" data-field="patientEmail">
+                    </span>
+                </div>
+            </div>
+        </div>
+        <p class="Page1">
+            <span>Registered office address:</span> Bharti AXA General Insurance Co. Ltd.<br>
+            First Floor, Ferns Icon, Survey No. 28, Doddanekundi, Bangalore - 560 037. IRDA Reg. No. 139.</br>
+            ST Registration No.: AADCB2008DST001 Co. Registration No.: U66030KA2007PLC043362
+        </p>
+        <div class="pagebreak"> </div>
+
+        <div id="detailsOfHospitalization" class="details-section NewPage">
+            
+            <!-- Heading -->
+            <div class="group">
+            4 Details of hospitalization          
+            </div>
+            <!-- Heading End -->
+            <div class="row">
+                <div class="two-column">
+                    <span class="fieldLabel">
+                        a) Name of Hospital where Admited:
+                    </span>
+                    <span class="fieldValue" data-field="hospitalName">
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="two-column">
+                    <span class="fieldLabel">
+                        b) Room Category occupied:
+                    </span>
+                    <span class="fieldValue" data-field="hospitalRoomCategory">
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="two-column">
+                    <span class="fieldLabel">
+                        c) Hospitalization due to: 
+                    </span>
+                    <span class="fieldValue" data-field="hospitalizationReason">
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+
+                <div class="two-column">
+                    <span class="fieldLabel">
+                        d) Date of injury / Date Disease first detected /Date of Delivery:
+                    </span>
+                    <span class="fieldValue" data-field="injuryOrDiseaseOrDeliveryDate">
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="one-column" style="width: 30%">
+                    <span class="fieldLabel">
+                        e) Date of Admission: 
+                    </span>
+                    <span class="fieldValue" data-field="dateOfAdmission">
+                    </span>
+                </div>
+                <div class="one-column" style="width: 10%">
+                    <span class="fieldLabel">
+                        f) Time 
+                    </span>                   
+                </div>
+
+                <div class="one-column" style="width: 30%">
+                    <span class="fieldLabel">
+                        g) Date of Discharge:
+                    </span>
+                    <span class="fieldValue" data-field="dateOfDischarge">
+                    </span>
+                </div>
+                <div class="one-column" style="width: 10%">
+                    <span class="fieldLabel">
+                        h) Time 
+                    </span>                   
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        I) If injury give cause: 
+                    </span>
+                    <span class="fieldValue" data-field="injuryCause">
+                    </span>
+                </div>
+
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        i) If Medico legal-
+                    </span>
+                    <span class="fieldValue" data-field="isMedicoLegal">
+                    </span>
+                </div>
+            </div>
+                <div class="row">
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        ii) Reported to Police-
+                    </span>
+                    <span class="fieldValue" data-field="isReportedToPolice">
+                    </span>
+                </div>
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        iii) MLC Report & Police FIR attached
+                    </span>
+                    <span class="fieldValue" data-field="isReportedToPolice">
+                    </span>
+                </div>
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        j) System of Medicine:
+                    </span>
+                    <span class="fieldValue" data-field="isReportedToPolice">
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div id="detailsOfClaim" class="details-section">
+            
+            <!-- Heading -->
+            <div class="group">
+            5 Details of claim     
+            </div>
+            <!-- Heading End -->
+            <div class="row">
+                <div id="claimBills" class="two-column">
+                    a) Details of the Treatment expenses claimed
+
+                    <div class="row">
+                        <div class="half-column">
+                            <span class="fieldLabel">
+                                i. Pre -hospitalization expenses
+                            </span>
+                            <span class="fieldValue" data-field="preHospitalizationExpense">
+                            </span> 
+                        </div>
+                        <div class="half-column">
+                            <span class="fieldLabel">
+                                ii. Hospitalization expenses
+                            </span>
+                            <span class="fieldValue" data-field="hospitalizationExpense">
+                            </span> 
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="half-column">
+                            <span class="fieldLabel">
+                                iii. Post-hospitalization expense
+                            </span>
+                            <span class="fieldValue" data-field="postHospitalizationExpense">
+                            </span> 
+                        </div>
+                        <div class="half-column">
+                            <span class="fieldLabel">
+                                iv. Health-Check up cost:
+                            </span>
+                            <span class="fieldValue" data-field="healthCheckupCost">
+                            </span> 
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="half-column">
+                            <span class="fieldLabel">
+                                v. Ambulance Charges:
+                            </span>
+                            <span class="fieldValue" data-field="ambulanceCharge">
+                            </span> 
+                        </div>
+                        <div class="half-column">
+                            <span class="fieldLabel">
+                                vi. Others (code):
+                            </span>
+                            <span class="fieldValue" data-field="otherTreatmentExpenses">
+                            </span> 
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="half-column"> 
+                        </div>
+                        <div class="half-column">
+                            <span class="fieldLabel"  style="font-weight: 800">
+                                Total
+                            </span>
+                            <span class="fieldValue" data-field="totalTreatmentExpense">
+                            </span> 
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="half-column">
+                            <span class="fieldLabel">
+                                vii. Pre -hospitalization period (days):
+                            </span>
+                            <span class="fieldValue" data-field="preHospitalizationDays">
+                            </span> 
+                        </div>
+                        <div class="half-column">
+                            <span class="fieldLabel">
+                                viii. Post -hospitalization period (days):
+                            </span>
+                            <span class="fieldValue" data-field="postHospitalizationDays">
+                            </span> 
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="half-column">
+                            <span class="fieldLabel">
+                                b) Claim for Domiciliary Hospitalization:
+                            </span>
+                            <span class="fieldValue" data-field="isClaimForDomiciliaryHospitalization">
+                            </span> 
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="half-column">
+                            c) Details of Lump sum / cash benefit claimed:
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="half-column">
+                            <span class="fieldLabel">
+                                i. Hospital Daily cash: 
+                            </span>
+                            <span class="fieldValue" data-field="hospitalDailyCash">
+                            </span> 
+                        </div>
+                        <div class="half-column">
+                            <span class="fieldLabel">
+                                ii. Surgical Cash:
+                            </span>
+                            <span class="fieldValue" data-field="surgicalCash">
+                            </span> 
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="half-column">
+                            <span class="fieldLabel">
+                                iii. Critical Illness benefit: 
+                            </span>
+                            <span class="fieldValue" data-field="criticalIllnessBenefit">
+                            </span> 
+                        </div>
+                        <div class="half-column">
+                            <span class="fieldLabel">
+                                iv. Convalescence:
+                            </span>
+                            <span class="fieldValue" data-field="convalescence">
+                            </span> 
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="half-column">
+                            <span class="fieldLabel">
+                                v. Pre/Post hospitalization Lump sum benefit 
+                            </span>
+                            <span class="fieldValue" data-field="prePostHospitalizationLumpSumBenefit">
+                            </span> 
+                        </div>
+                        <div class="half-column">
+                            <span class="fieldLabel">
+                                vi. Other
+                            </span>
+                            <span class="fieldValue" data-field="otherBenefits">
+                            </span> 
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="half-column"> 
+                        </div>
+                        <div class="half-column">
+                            <span class="fieldLabel">
+                               <b> Total</b>
+                            </span>
+                            <span class="fieldValue" data-field="totalBenefit">
+                            </span> 
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+
+        <div id="detailsOfClaim" class="details-section" style="padding-top: 2%">
+            
+            <!-- Heading -->
+            <div class="group">
+            6 Claim documents submitted - check list 
+            <span style="font-size: 9px;padding-left: 20px;"> 
+            Please furnish the following list of the documents for Reimbursement: 
+            </span>
+            </div>
+            <!-- Heading End -->
+            <div class="row">
+                
+                <div class="two-column checklist">
+                    <input type="checkbox" name="" class="CheckboxBill">
+                    <span class="fieldLabel">
+                       Claim form with duly signed by insured (Part I) and treating doctor (Part II).
+                    </span>
+                </div> 
+                <div class="two-column checklist">
+                    <input type="checkbox" name="" class="CheckboxBill">
+                    <span class="fieldLabel">
+                       Original discharge summary
+                    </span>
+                </div>  
+                <div class="two-column checklist">
+                    <input type="checkbox" name="" class="CheckboxBill">
+                    <span class="fieldLabel">
+                      Original final bill with receipt & detailed break up towards the final bill (item wise/cost wise).
+                    </span>
+                </div>  
+                <div class="two-column checklist">
+                    <input type="checkbox" name="" class="CheckboxBill">
+                    <span class="fieldLabel">
+                       Original lab reports with advice for investigation undergone from the treating doctor (Doctor Prescription/Consultation).
+                    </span>
+                </div>  
+                <div class="two-column checklist">
+                    <input type="checkbox" name="" class="CheckboxBill">
+                    <span class="fieldLabel">
+                       A letter from treating consultant stating past history if any with duration of the said ailment,
+                    </span>
+                </div>  
+                <div class="two-column checklist">
+                    <input type="checkbox" name="" class="CheckboxBill">
+                    <span class="fieldLabel">
+                      A letter from the treating consultant stating details of accident and initial assessment- alcohol intoxication if any, (if the case of injury or accident) with MLC COPY / FIR
+                    copy in case of RTA/any injury/assault/poisoning etc.
+                    </span>
+                </div>  
+                <div class="two-column checklist">
+                    <input type="checkbox" name="" class="CheckboxBill">
+                    <span class="fieldLabel">
+                       1st consultation paper before the admission, if any
+                    </span>
+                </div>  
+                <div class="two-column checklist">
+                    <input type="checkbox" name="" class="CheckboxBill">
+                    <span class="fieldLabel">
+                       Hospital registration certificate if the hospital is in non-network/remote location.
+                    </span>
+                </div>  
+                <div class="two-column checklist">
+                    <input type="checkbox" name="" class="CheckboxBill">
+                    <span class="fieldLabel">
+                       A letter from insured stating reason for delay in submission of claim documents. (If delay more than 30 days after the discharge)
+                    </span>
+                </div>  
+                <div class="two-column checklist">
+                    <input type="checkbox" name="" class="CheckboxBill">
+                    <span class="fieldLabel">
+                       Policy copy/Health ID card/ Health TPA ID card with ID proof & Address proof for patient & proposer.
+                    </span>
+                </div> 
+                <div class="two-column checklist">
+                    <input type="checkbox" name="" class="CheckboxBill">
+                    <span class="fieldLabel">
+                       Cancelled cheque for Electronic fund transfer in the name of proposer
+                    </span>
+                </div> 
+                <div class="two-column checklist">
+                    
+                    <span class="fieldLabel" style="font-weight: 800;">
+                      For pre - post hospitalization claim: After the discharge within 60 days treatment.
+                    </span>
+                </div> 
+                <div class="two-column checklist">
+                    <input type="checkbox" name="" class="CheckboxBill">
+                    <span class="fieldLabel">
+                       Claim form (Part I)
+                    </span>
+                </div> 
+                <div class="two-column checklist">
+                    <input type="checkbox" name="" class="CheckboxBill">
+                    <span class="fieldLabel">
+                       Medicine bills with Doctor Prescription/Consultation.
+                    </span>
+                </div> 
+                <div class="two-column checklist">
+                    <input type="checkbox" name="" class="CheckboxBill">
+                    <span class="fieldLabel">
+                       Original lab reports with advice for investigation undergone from the treating doctor (Doctor Prescription/Consultation). If any
+                    </span>
+                </div> 
+                <div class="two-column checklist">
+                    <input type="checkbox" name="" class="CheckboxBill">
+                    <span class="fieldLabel">
+                       Cancelled cheque Electronic fund transfer in the name of proposer
+                    </span>
+                </div>                 
+            </div>           
+        </div>
+        </div>
+        <div class="Page2">
+            <img src="images/logo/bharti.jpg">
+        </div>
+<div class="pagebreak"> </div>
+        <div id="detailsOfBillsEnclosed" class="details-section NewPage">
+           
+           <!-- Heading -->
+            <div class="group">
+            DETAILS OF BILLS ENCLOSED      
+            </div>
+            <!-- Heading End -->
+            <table>
+                <thead>
+                    <tr>
+                        <th class="table-head">Sl. No.</th>
+                        <th class="table-head">Bill. No.</th>
+                        <th class="table-head">Date</th>
+                        <th class="table-head">Issued by</th>
+                        <th class="table-head">Towards</th>
+                        <th class="table-head">Amount (Rs)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+        <div id="detailsOfBillsEnclosed" class="details-section">
+           
+           <!-- Heading -->
+            <div class="group">
+            8 NEFT Declaration:
+            </div>
+            <!-- Heading End -->
+            <p class="BankLabel">Insured / proposer details :</p>
+            <div class="row">
+                <div class="two-column">
+                    <span class="fieldLabel">
+                         Insured full name<br>
+                        (As in Bank Account)
+                    </span>
+                </div>               
+            </div>
+            <div class="row">
+                <div class="two-column">
+                    <span class="fieldLabel">
+                         Mobile Number
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="two-column">
+                    <span class="fieldLabel">
+                         Email ID
+                    </span>
+                </div>                
+            </div>
+            <p class="BankLabel">Particulars of Bank Account :</p>
+             <div class="row">
+                <div class="two-column">
+                    <span class="fieldLabel">
+                         Bank Name
+                    </span>
+                </div>                
+            </div>
+            <div class="row">
+                <div class="two-column">
+                    <span class="fieldLabel">
+                         Name of the Branch
+                    </span>
+                </div>                
+            </div>
+            <div class="row">
+                <div class="two-column">
+                    <span class="fieldLabel">
+                         Bank branch IFSC code for NEFT (11 digit)
+                    </span>
+                </div>                
+            </div>
+            <div class="row">
+                <div class="two-column">
+                    <span class="fieldLabel">
+                         Account Number as appearing on cheque book
+                    </span>
+                </div>                
+            </div>
+            <p class="Bank-Req">
+                Mandatory Requirement: Cancelled blank Cheque- for ensuring accuracy of name of the bank, branch name, Account number and IFSC code. If name / IFSC code / account number of
+                the payee is not printed on the cheque leaf, please attach copy of the first page of the bank passbook.
+            </p>
+
+
+        <div id="declarationByTheInsured" class="details-section NewPage">
+            
+            <!-- Heading -->
+            <div class="group ">
+            9 Declaration by the insured
+            </div>
+            <!-- Heading End -->
+            <p>
+                 I / We, the undersigned, hereby declare that the particulars provided above have been filled-in / provided by me / us and hereby further
+                    declare that the said particulars are correct and complete and no blanks have been left. If the transaction is delayed or not effected at all for
+                    reason of incomplete or incorrect information I / we would not hold Bharti AXA General Insurance Company Limited responsible for the same.
+            </p>
+            <br>
+            <p>
+                I / We further undertake to refund, at any time, any excess amount whether demanded by Bharti AXA General Insurance Company Limited or
+                not, which has been credited to my account [due to any reason whatsoever] by Bharti AXA General Insurance Company Limited, in excess of
+                (i) the amount due to me, or (ii) in excess of amount for which I gave mandate, and or (iii) Any other payment.
+            </p>
+            <br>
+            <p>
+                I / We agree that the payment will be endeavoured to be credited starting from the date of next payment cycle and issuance of relevant credit
+                instruction for electronic payment from Bharti AXA General Insurance Company Limited into the aforesaid account will be valid discharge to
+                Bharti AXA General Insurance Company Limited for having paid (i) the amount due to me, or (iii) Any other payment.
+            </p>
+            <br>
+            <p>
+                I / We further confirm that we understand this mode as a method of payment introduced by Reserve Bank of India, which provides us an option
+                to receive the amount and or to collect our payments by electronic payment mode directly through my/our bank accounts.
+            </p>
+            <br>
+            <p>
+                I / We further confirm that I/we understand, Bharti AXA General Insurance Company Limited, shall make electronic payment to my account by
+                issuing the Payment instruction electronically through its banker to the Clearing Authority and the Clearing Authority would ensure credit to
+                my/our specified bank account provided hereinabove.
+            </p>
+            <br>
+            <p>
+                I / We further undertake to inform Bharti AXA General Insurance Company Limited with an advance notice of at-least 6 weeks, to withdraw
+                from this mode of electronic payment.
+            </p>
+            <br>
+            <p>
+                I / We further confirm that Bharti AXA General Insurance Company Limited will have, at its sole discretion, the right to return back to the option
+                of paying to me/us by way of cheque if there are more than 2 consecutive failures in remittances for no fault of Bharti AXA General Insurance
+                Company Limited.
+            </p>
+            <div class="Page3">
+            <img src="images/logo/bharti.jpg">
+            </div>
+            <div class="pagebreak"> </div>
+
+            <br>
+            <p class="BankLabel NewPage">
+                Data Privacy Notice:
+            </p>
+            <p>
+                I/We hereby provide consent to the Company for collecting/retaining any information relating to Me/Us including Sensitive Personal
+                Information (“hereinafter cumulatively referred to as “INFORMATION”), that is either available with the Company or disclosed by Me/Us while
+                obtaining the policy of Insurance from the company or otherwise. I/We further understand that the Company may use the INFORMATION for
+                servicing the Insurance policy obtained by Me/Us and for same may share the INFORMATION with any reinsurer, insurance association,
+                medical authorities, other Insurers, statutory authorities, court, governmental body, regulator etc., or with services provider(s) engaged by the
+                Company for servicing the Insurance policy, underwriting the risk, settlement of claim etc. without obtaining our specific consent for such
+                sharing and we hereby provide our consent to Company for same.
+            </p>
+            <br>
+            <p>
+                I/We understand that whenever I/We would like to update/correct the INFORMATION, we will intimate the Company for the same, so as to
+                enable the Company to amend/correct the INFORMATION accordingly. Further in the event I/We would like to withdraw My/Our consent
+                provided herein, I/We would intimate the Company of the same in writing and also understand that, in the event of such withdrawal by Me/Us,
+                the Company reserves the right to not provide Me/Us the Services for which it has sought the INFORMATION.
+            </p>
+            <br>
+                After Bharti AXA General Insurance Company Limited issues the Payment instruction electronically through its banker, for whatever reasons,
+                if I/we do not get the credit to my/our account, then same shall neither constitute the default in (i) Payment of amount requested by me, or (ii)
+                Payment of amount due to me/us, or (iii) Payment of Any other payment by Bharti AXA General Insurance Company Limited nor constitute
+                default of any terms and Conditions which may have been entered between I / We and Bharti AXA General Insurance Company Limited. I, We
+                the Undersigned have read the above mentioned declarations / conditions and provide my / our free consent to the same.
+            </p>
+            <div class="row">
+                <div class="one-column" style="width: 20%">
+                    <span class="fieldLabel">
+                        Date
+                    </span>
+                    <input type="text" name="" style="width: 50%">
+                </div>
+
+                <div class="one-column" style="width: 20%">
+                    <span class="fieldLabel">
+                        Place:
+                    </span>
+                    <input type="text" name="" style="width: 70%">
+                </div>
+
+                <div class="one-column" style="width: 50%;
+    float: right;
+    text-align: right;">
+                    <span class="fieldLabel">
+                        Signature of the Insured:
+                    </span>
+                    <input type="text" name="" style="height: 3vh;
+    width: 50%;">
+                </div>
+            </div>
+        </div>        
+        </div>
+        <div id="declarationByTheInsured" class="details-section NewPage">
+            
+            <!-- Heading -->
+            <div class="group ">
+            10 Customer Identification Procedure (as per KYC norms of IRDA)
+            </div>
+            <!-- Heading End -->
+            <p class="KYC">Please submit the following documents in case of claim amount exceeds Rs. 1,00,000</p>
+            <div class="row">
+                <div class="one-column" style="">
+                    <span class="fieldLabel">
+                        Legal name and any other names used
+                        (Any one of the mentioned documents):
+                    </span>
+                </div>
+                <div class="two-column" style="">
+                    <span class="fieldLabel">
+                        Passport/ PAN Card/ Voter’s Identity Card/ Letter from a recognized public
+                        authority or public servant verifying the identity and residence of the
+                        customer/ AADHAAR card
+                    </span>
+                </div>
+            </div>
+            <div class="row">
+                <div class="one-column" style="">
+                    <span class="fieldLabel">
+                        Address Proof (Any one of the mentioned documents):
+                    </span>
+                </div>
+                <div class="two-column" style="">
+                    <span class="fieldLabel">
+                        Telephone bill/ Bank account statement (not more than 6 months)/ Letter
+                        from any recognized public authority/ Electricity bill/ Ration card / Registered
+                        Lease and License agreement / Agreement for sale
+                    </span>
+                </div>
+            </div>
+            <div class="Page4">
+            <img src="images/logo/bharti.jpg">
+        </div>
+        <div id="footer">
+            <button id="generatePdfButton">Print Pdf</button>
+            <button id="returnToFormButton">Return to Form</button>
+        </div>
+
+        <script src="js/claimPreview.js"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114969987-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-114969987-1');
+        </script>
+        <div class="SelfClaim">
+                <p> 
+                    Generated by https://sureclaim.in/selfclaim
+                </p>
+            </div>
+    </body>
+</html>

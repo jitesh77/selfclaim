@@ -1,0 +1,245 @@
+[
+ {
+   "sno": "1",
+   "name": "United Health Care Parekh Insurance TPA",
+   "irdaRegistrationNo": "2",
+   "companyIdentificationNo": "",
+   "activeStatus": "active",
+   "countryJurisdiction": "India",
+   "address": "Mumbai"
+ },
+ {
+   "sno": "2",
+   "name": "Medi Assist Insurance TPA ",
+   "irdaRegistrationNo": "3",
+   "companyIdentificationNo": "U85199KA1999PTC025676 ",
+   "activeStatus": "active",
+   "countryJurisdiction": "India",
+   "address": "Bangalore"
+ },
+ {
+   "sno": "3",
+   "name": "MDIndia Health Insurance TPA",
+   "irdaRegistrationNo": "5",
+   "companyIdentificationNo": "",
+   "activeStatus": "active",
+   "countryJurisdiction": "India",
+   "address": "Pune"
+ },
+ {
+   "sno": "4",
+   "name": "Paramount Health Services & Insurance TPA",
+   "irdaRegistrationNo": "6",
+   "companyIdentificationNo": "",
+   "activeStatus": "active",
+   "countryJurisdiction": "India",
+   "address": "Thane"
+ },
+ {
+   "sno": "5",
+   "name": "E-Meditek Insurance TPA ",
+   "irdaRegistrationNo": "7",
+   "companyIdentificationNo": "",
+   "activeStatus": "active",
+   "countryJurisdiction": "India",
+   "address": "Gurgaon"
+ },
+ {
+   "sno": "6",
+   "name": "Heritage Health Insurance TPA",
+   "irdaRegistrationNo": "8",
+   "companyIdentificationNo": "",
+   "activeStatus": "active",
+   "countryJurisdiction": "India",
+   "address": "Kolkata"
+ },
+ {
+   "sno": "7",
+   "name": "Focus Health Insurance TPA",
+   "irdaRegistrationNo": "10",
+   "companyIdentificationNo": "",
+   "activeStatus": "active",
+   "countryJurisdiction": "India",
+   "address": "Noida"
+ },
+ {
+   "sno": "8",
+   "name": "Medicare Insurance TPA ",
+   "irdaRegistrationNo": "12",
+   "companyIdentificationNo": "",
+   "activeStatus": "active",
+   "countryJurisdiction": "India",
+   "address": "Kolkata"
+ },
+ {
+   "sno": "9",
+   "name": "Family Health Plan Insurance TPA",
+   "irdaRegistrationNo": "13",
+   "companyIdentificationNo": "",
+   "activeStatus": "active",
+   "countryJurisdiction": "India",
+   "address": "Hyderabad"
+ },
+ {
+   "sno": "10",
+   "name": "Raksha Health Insurance TPA ",
+   "irdaRegistrationNo": "15",
+   "companyIdentificationNo": "",
+   "activeStatus": "active",
+   "countryJurisdiction": "India",
+   "address": "Faridabad"
+ },
+ {
+   "sno": "11",
+   "name": "Vidal Health Insurance TPA ",
+   "irdaRegistrationNo": "16",
+   "companyIdentificationNo": "",
+   "activeStatus": "active",
+   "countryJurisdiction": "India",
+   "address": "Bangalore"
+ },
+ {
+   "sno": "12",
+   "name": "Anyuta Insuance TPA",
+   "irdaRegistrationNo": "17",
+   "companyIdentificationNo": "",
+   "activeStatus": "active",
+   "countryJurisdiction": "India",
+   "address": "Bangalore"
+ },
+ {
+   "sno": "13",
+   "name": "East West Assist Insurance TPA",
+   "irdaRegistrationNo": "18",
+   "companyIdentificationNo": "",
+   "activeStatus": "active",
+   "countryJurisdiction": "India",
+   "address": "New Delhi"
+ },
+ {
+   "sno": "14",
+   "name": "Medsave Health Insurance TPA",
+   "irdaRegistrationNo": "19",
+   "companyIdentificationNo": "",
+   "activeStatus": "active",
+   "countryJurisdiction": "India",
+   "address": "New Delhi"
+ },
+ {
+   "sno": "15",
+   "name": "Genins India Insurance TPA ",
+   "irdaRegistrationNo": "20",
+   "companyIdentificationNo": "",
+   "activeStatus": "active",
+   "countryJurisdiction": "India",
+   "address": "Noida"
+ },
+ {
+   "sno": "16",
+   "name": "Alankit Insurance TPA",
+   "irdaRegistrationNo": "21",
+   "companyIdentificationNo": "",
+   "activeStatus": "active",
+   "countryJurisdiction": "India",
+   "address": "New Delhi"
+ },
+ {
+   "sno": "17",
+   "name": "Health India Insurance TPA ",
+   "irdaRegistrationNo": "22",
+   "companyIdentificationNo": "",
+   "activeStatus": "active",
+   "countryJurisdiction": "India",
+   "address": "Mumbai"
+ },
+ {
+   "sno": "18",
+   "name": "Good Health Insurance TPA ",
+   "irdaRegistrationNo": "23",
+   "companyIdentificationNo": "",
+   "activeStatus": "active",
+   "countryJurisdiction": "India",
+   "address": "Hyderabad"
+ },
+ {
+   "sno": "19",
+   "name": "Vipul Medcorp Insurance TPA",
+   "irdaRegistrationNo": "24",
+   "companyIdentificationNo": "",
+   "activeStatus": "active",
+   "countryJurisdiction": "India",
+   "address": "Gurgaon"
+ },
+ {
+   "sno": "20",
+   "name": "Park Mediclaim Insurance TPA ",
+   "irdaRegistrationNo": "25",
+   "companyIdentificationNo": "",
+   "activeStatus": "active",
+   "countryJurisdiction": "India",
+   "address": "New Delhi"
+ },
+ {
+   "sno": "21",
+   "name": "Safeway Insurance TPA ",
+   "irdaRegistrationNo": "26",
+   "companyIdentificationNo": "",
+   "activeStatus": "active",
+   "countryJurisdiction": "India",
+   "address": "New Delhi"
+ },
+ {
+   "sno": "22",
+   "name": "Anmol Medicare Insurance TPA",
+   "irdaRegistrationNo": "27",
+   "companyIdentificationNo": "",
+   "activeStatus": "active",
+   "countryJurisdiction": "India",
+   "address": "Ahmedabad"
+ },
+ {
+   "sno": "23",
+   "name": "Dedicated Healthcare Services TPA",
+   "irdaRegistrationNo": "28",
+   "companyIdentificationNo": "",
+   "activeStatus": "active",
+   "countryJurisdiction": "India",
+   "address": "Mumbai"
+ },
+ {
+   "sno": "24",
+   "name": "Grand Insurance TPA",
+   "irdaRegistrationNo": "29",
+   "companyIdentificationNo": "",
+   "activeStatus": "active",
+   "countryJurisdiction": "India",
+   "address": "Kolkata"
+ },
+ {
+   "sno": "25",
+   "name": "Rothshield Insurance TPA ",
+   "irdaRegistrationNo": "30",
+   "companyIdentificationNo": "",
+   "activeStatus": "active",
+   "countryJurisdiction": "India",
+   "address": "Mumbai"
+ },
+ {
+   "sno": "26",
+   "name": "Ericson Insurance TPA",
+   "irdaRegistrationNo": "35",
+   "companyIdentificationNo": "",
+   "activeStatus": "active",
+   "countryJurisdiction": "India",
+   "address": "Mumbai"
+ },
+ {
+   "sno": "27",
+   "name": "Health Insurance TPA",
+   "irdaRegistrationNo": "36",
+   "companyIdentificationNo": "",
+   "activeStatus": "active",
+   "countryJurisdiction": "India",
+   "address": "Noida"
+ }
+]

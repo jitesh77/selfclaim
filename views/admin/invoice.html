@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>Invoice</title>
+		<% include ../partials/head %>
+		<link rel="stylesheet" type="text/css" href="css/invoice.css">
+	</head>
+	<body>
+		<div class="logo-image">
+			<a href="https://sureclaim.in/"><img src="images/logo.png"></a>
+		</div>
+		<div class="ui two column grid">
+			<div class="row">
+				<div class="column left-column">
+					<h1>SureServe Techsoft Pvt Ltd</h1>
+					<p>#41, South End, A Cross Road, 3rd Phase,<br>  
+						JP Nagar, Bengaluru 560068 <br>
+						+91 9342659495
+					</p>
+				</div>
+				<div class="column right-column">
+					<h1>INVOICE</h1>
+				</div>
+			</div>
+		</div>
+
+		<div class="ui three column grid" id="invoiceDate">
+			<div class="row">
+				<div class="column left-column-bill">
+					<h3>Bill To:</h3>
+					<span data-field="billTo">Manoj Kumar swesdlonkedfvcolnedf</span>
+				</div>
+				<div class="column bill-label">
+					<p>Invoice#:</p>
+					<p>Invoice Date:</p>
+				</div>
+				<div class="column right-column-number">
+					<p><span data-field="invoiceNumber"></span>OL170051</p>
+					<p><span data-field="invoiceDate"></span>26/06/2017</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="invoice-table" id="servicesSection">
+			<h2>Services</h2>
+			<table class="ui single line unstackable selectable striped celled table" id="servicesTable">
+				<thead>
+					<tr>
+						<th>S.No</th>
+						<th>Service Name</th>
+						<th>Quantity</th>
+						<th>Discount</th>
+						<th>Tax</th>
+						<th>Rate</th>
+						<th>Price</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+			<h2>Payments</h2>
+			<table class="ui single line unstackable selectable striped celled table" id="paymentsTable">
+				<thead>
+					<tr>
+						<th>S.No</th>
+						<th>Amount</th>
+						<th>Payment Mode</th>
+						<th>Payment Date</th>
+					</tr>
+				</thead>
+				<tbody>
+				</tbody>
+			</table>
+		</div>
+
+		<div class="ui three column grid labels">
+			<div class="row">
+				<div class="column label0">
+				</div>
+				<div class="column label1">
+					<p>Sub Total</p>
+					<p>Amount Paid</p>
+					<p class="total-amount">Total Amount</p>
+				</div>
+				<div class="column label2">
+					<p>2,000</p>
+					<p>2,000</p>
+					<p class="total-amount">2,000</p>
+				</div>
+			</div>
+		</div>
+
+		<div class="footer-labels">
+			<p>
+				<b>Note : </b> <br>
+				CIN: U72900KA2017PTC100915 <br>
+				PAN: AAYCS2317M
+			</p>
+			<p>
+				SureServe wishes you good health and faster recovery.
+			</p>
+			<p>
+				Health Insurance Reimbursement Claims Assistance
+			</p>
+			<p>
+				Hospitalization Assistance
+			</p>
+		</div>
+		<div class="footer-sign">
+			<img src="images/signature.png">
+		</div>
+	</body>
+	<script type="text/javascript">
+		var invoiceData = <%- JSON.stringify(invoiceData) %>;
+		console.log(invoiceData);
+	</script>
+	<script src="js/invoice.js"></script>
+
+</html>

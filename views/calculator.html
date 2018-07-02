@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Calculator</title>
+	<% include ./partials/head %>
+	<link rel="stylesheet" type="text/css" href="css/calculator.css">
+</head>
+<body>
+	<div class="ui menu" id="menu">
+      <div id="menuLogo">
+        <a href="https://sureclaim.in/"><img src="images/logo.png" alt="SureClaim"></a>
+      </div>
+      <div class="right menu">
+        <div class="item">
+          <a href="https://sureclaim.in/">Home</a>
+        </div>
+        <div class="item">
+          <a href="https://sureclaim.in/blog/">Blog</a>
+        </div>
+        <div class="item">
+          <a href="https://sureclaim.in/contact-us/">Contact Us</a>
+        </div>
+      </div>
+    </div>
+    <div class="calculator-heading" id="calculationResultTop">
+    	<h2>Health Insurance Claim Calculator</h2>
+    	<h3>Calculate your claim amount</h3>
+    </div>
+    <div class="ui two column stackable grid" id="calculationSection">
+    	<div class="two column row">
+    		<div class="fill-form-section">
+    			<div class="ui segment" id="calculateClaim">
+    				<h3 class="heading">Claim Details</h3>
+    				<div class="ui form">
+    					<div class="two fields">
+    						<div class="field">
+    							<label>Date of Admission</label>
+    							<input type="date" name="" data-field="dateOfAdmission">
+                                <p id="dateOfAdmissionError" class="error-field"></p>
+    						</div>
+    						<div class="field">
+    							<label>Date of Discharge</label>
+    							<input type="date" name="" data-field="dateOfDischarge">
+                                <p id="dateOfDischargeError" class="error-field"></p>
+    						</div>
+    					</div>
+                        <div class="proceed-button">
+                            <button id="proceedButton">Proceed</button>
+                        </div>
+    				</div>
+    				<div class="bills-section">
+    					<h3 class="heading" id="billHeading">Bill Details</h3>
+    					<div class="ui form">
+    						<div class="three fields">
+    							<div class="field">
+    								<label>Bill Date<sup class="requiredStar">*</sup></label>
+    								<input type="date" data-field="billDate" />
+                                    <p id="billDateError" class="error-field"></p>
+    							</div>
+    							<div class="field">
+    								<label>Bill Number<sup class="requiredStar">*</sup></label>
+    								<input type="number" data-field="billNumber" />
+                                    <p id="billNumberError" class="error-field"></p>
+    							</div>
+    							<div class="field">
+    								<label>Bill Amount<sup class="requiredStar">*</sup></label>
+    								<input type="number" data-field="billAmount" />
+                                    <p id="billAmountError" class="error-field"></p>
+    							</div>
+    						</div>
+    						<div class="ui message">
+	    						<div class="inline fields" id="billType">
+	    							<div class="field">
+	    								<div class="ui radio checkbox">
+	    									<h4>Bill Type: </h4>
+	    								</div>
+	    							</div>
+	    							<div class="field">
+	    								<div class="ui radio checkbox">
+	    									<input type="radio" value="Hospital Bill" id="hospital" name="billType" checked="checked">
+	    									<label for="hospital">Hospital main bill</label>
+	    								</div>
+	    							</div>
+                                    <div class="field">
+                                        <div class="ui radio checkbox">
+                                            <input type="radio" value="Pharmacy" id="pharmacy" name="billType" >
+                                            <label for="pharmacy">Pharmacy</label>
+                                        </div>
+                                    </div>
+	    							<div class="field">
+	    								<div class="ui radio checkbox">
+	    									<input type="radio" value="Other" id="others" name="billType" >
+	    									<label for="others">Other</label>
+	    								</div>
+	    							</div>
+	    						</div>
+	    					</div>
+	    					<div class="field">
+	    						<button class="ui button" id="billsTableAddButton">
+                                	<i class="plus icon"></i> 
+                                        Add
+                                </button>
+                                <button class="ui button" id="billsTableUpdateButton">
+                                    <i class="plus icon"></i> 
+                                        Update
+                                </button>
+	    					</div>
+    					</div>
+                        <div class="table-responsive">
+                            <table class="ui single line unstackable selectable striped celled table" id="claimCalculatorBillTable">
+                                <thead>
+                                    <tr>
+                                        <th>S.No</th>
+                                        <th>Bill Date</th>
+                                        <th>Bill Number</th>
+                                        <th>Bill Amount</th>
+                                        <th>Bill Type</th>
+                                        <th>Edit</th>
+                                        <th>Delete</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+    				</div>
+                    <div class="calculator-button">
+                        <button id="calculateClaimButton">Calculate Your Claim</button>
+                    </div>
+    			</div>
+    		</div>
+    		<div class="selfclaim-div">
+    			<div class="ui segment">
+    				<div class="selfclaim-section"> 
+    					<h3>Fill your claim form online for <b>FREE</b></h3>
+    					<button class="fill-form-button">Fill Form</button>
+    				</div>
+    			</div>
+    		</div>
+    	</div>
+    </div>
+
+    <div class="ui two column stackable grid" id="calculationResult">
+        <p class="try-again-align"><a href="calculator">Try the calculator again</a></p>
+        <div class="one column row">
+            <div class="result-section">
+                <div class="ui segment">
+                    <h2 class="heading">Results</h2>
+                    <div class="ui form">
+                        <div class="field highlight">
+                            Details of the Treatment expenses claimed:
+                        </div>
+                        <div class="two fields section-one">
+                            <div class="field section-two">
+                                Pre -hospitalization expenses:
+                                <span class="highlight" data-field="preHospitalizationExpenses"></span>
+                            </div>
+                            <div class="field section-two">
+                                Hospitalization expenses:
+                                <span class="highlight" data-field="hospitalizationExpenses"></span>
+                            </div>
+                        </div>
+                        <div class="two fields section-one">
+                            <div class="field section-two">
+                                Post-hospitalization expense:
+                                <span class="highlight" data-field="postHospitalizationExpenses"></span>
+                            </div>
+                            <div class="field section-two">
+                                Health-Check up cost:
+                            </div>
+                        </div>
+                        <div class="two fields section-one">
+                            <div class="field section-two">
+                                Ambulance Charges
+                            </div>
+                            <div class="field section-two">
+                                 Others (code):
+                            </div>
+                        </div>
+                        <div class="two fields section-one">
+                            <div class="field section-two extra-column">
+                                
+                            </div>
+                            <div class="field section-two highlight">
+                                Total:
+                                <span class="highlight" data-field="totalHospitalizationExpenses"></span>
+                            </div>
+                        </div>
+                        <div class="two fields section-one">
+                            <div class="field section-two">
+                                Pre -hospitalization period (days):
+                                <span class="highlight" data-field="preHospitalizationDays"></span>
+                            </div>
+                            <div class="field section-two">
+                                 Post -hospitalization period (days):
+                                 <span class="highlight" data-field="postHospitalizationDays"></span>
+                            </div>
+                        </div>
+                        <div class="two fields section-one">
+                            <div class="field section-two">
+                                Details of Lump sum / cash benefit claimed:
+                            </div>
+                            <div class="field section-two extra-column">
+                                
+                            </div>
+                        </div>
+                        <div class="two fields section-one">
+                            <div class="field section-two">
+                                Hospital Daily cash:
+                            </div>
+                            <div class="field section-two">
+                                Surgical Cash:
+                            </div>
+                        </div>
+                        <div class="two fields section-one">
+                            <div class="field section-two">
+                                Critical Illness benefit:
+                            </div>
+                            <div class="field section-two">
+                                Convalescence:
+                            </div>
+                        </div>
+                        <div class="two fields section-one">
+                            <div class="field section-two">
+                                Pre/Post hospitalization Lump sum benefit 
+                            </div>
+                            <div class="field section-two">
+                                Other
+                            </div>
+                        </div>
+                        <div class="two fields section-one" style="border-bottom: 1px solid #e2e2e2;">
+                            <div class="table-responsive table-data">
+                                <table class="ui single line unstackable selectable striped celled table" id="claimCalculatorResultBillTable">
+                                    <thead>
+                                        <tr>
+                                            <th>S.No</th>
+                                            <th>Bill Number</th>
+                                            <th>Bill Date</th>
+                                            <th>Issued By</th>
+                                            <th>Towards</th>
+                                            <th>Amount</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div class="two fields section-one">
+                            <div class="field section-two bottom-section1">
+                                <h3>Insurance Claims Made Easy</h3>
+                                <div>Investments in minutes. Completely paperless & hassle-free.</div>
+                                <button class="fill-form-button">Fill Form Online</button>
+                            </div>
+                            <div class="field section-two bottom-section2">
+                                <img src="images/subscribe.png">
+                                <p>Get Claim result on your email</p>
+                                <div class="ui action input">
+                                    <input class="email-input" id="emailInput" type="text" placeholder="Enter your email address..">
+                                    <button id="emailSendButton" class="ui button email-send-button">Send</button>
+                                </div>
+                                <p id="emailInputError" class="error-field"></p>
+                                <p id="emailInputSuccess" class="email-success-message"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <p id="topResult" class="try-again-align bottom-align">
+            <a href="calculator">Try the calculator again</a>
+        </p>
+    </div>
+</body>
+
+<script src="js/calculator.js"></script>
+<script type="text/javascript">
+    $("#topResult").click(function() {
+        $('html, body').animate({
+            scrollTop: $("#calculationResultTop").offset().top
+        }, 500);
+    });
+</script>
+
+</html>

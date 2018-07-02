@@ -1,0 +1,7 @@
+/node_modules
+/public/bower_components
+/logs
+/npm-debug.log
+/mocks
+/forms
+/config/config.json

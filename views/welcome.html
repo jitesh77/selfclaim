@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <% include ./partials/head %>
+
+    <!-- Appzi: Capture Insightful Feedback -->
+
+    <script async src="https://app.appzi.io/bootstrap/bundle.js?token=ug23R"></script>
+
+    <!-- End Appzi -->
+  </head>
+  <body>
+    <div class="ui menu" id="menu">
+      <div id="menuLogo">
+        <a href="https://sureclaim.in/"><img src="images/logo.png" alt="SureClaim"></a>
+      </div>
+      <div class="right menu">
+        <div class="item">
+          <a href="dashboard">Dashboard</a>
+        </div>
+        <div class="item">
+          <a href="#">Buy Claim Assistance Plan</a>
+        </div>
+        <div class="item">
+          <a href="#">Help</a>
+        </div>
+        <div class="item">
+          <a href="logout">Logout</a>
+        </div>
+      </div>
+    </div>
+
+    <div class="two column stackable ui grid">
+      <div class="column welcome-page-left">
+        <div class="ui segment">
+          <h2>
+            Before you start…
+          </h2>
+          <p>
+            We thank you for choosing to prepare your claim using SureClaim platform. 
+            We’ll try and make this process informative and convenient for you.
+          </p>
+          <p>
+            Just so you know, your claim form looks something like the form on the right-hand side. 
+            The format or layout of forms may vary as per insurance company or TPA, however, the data these forms collect remains the same.
+          </p>
+          <p>
+            Our research indicates that one needs to fill 40-60 fields in the claim form to prepare a complete claim. This means you need to be patient through this elaborate process. 
+            Click on the Help button next to the field to understand more about it.
+          </p>
+          <p>
+            We recommend you should keep following set of documents with you to fill relevant details in form:
+          </p>
+          <ul>
+            <li>Discharge Summary</li>
+            <li>Hospital Bill received at time of discharge</li>
+            <li>All other bills for pharmacy, diagnostics and consultations</li>
+            <li>Latest year’s Insurance policy certificate or insurance/TPA customer ID card</li>
+          </ul>
+          <p>
+            At any point if you need assistance or want to share a feedback or suggestion, 
+            message us right from the feedback window available to you on the screen.
+          </p>
+          <button id="newClaimProceedButton" class="ui right labeled icon button welcome-proceed-button">
+            <i class="right arrow icon"></i>
+            Proceed
+          </button>
+        </div>
+      </div>
+      <div class="column welcome-page-right">
+        <div class="ui segment">
+          <img src="images/irda-form.jpg" alt="IRDA Form" />
+        </div>
+      </div>
+    </div>
+  </body>
+  <!-- Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114969987-1"></script>
+  <script>
+
+  // Create new Claim
+  $('#newClaimProceedButton').on('click', function(e) {
+      createNewSelfClaim();
+  });
+
+  var createNewSelfClaim = function() {
+      var params = {};
+      globals.ajaxService.createNewSelfClaim(params, function successCallback(selfClaims) {
+          window.location.href = 'dashboard';
+      }, function errorCallback(message) {
+          globals.showToastMessage('Error', message, 'error');
+      });
+  }
+
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+    gtag('config', 'UA-114969987-1');
+  </script>
+</html>

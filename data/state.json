@@ -1,0 +1,176 @@
+[
+    {
+      "sno": 1,
+      "name": "Andaman And Nicobar"
+    },
+
+    {
+      "sno": 2,
+      "name": "Andhra Pradesh"
+    },
+
+    {
+      "sno": 3,
+      "name": "Arunachal Pradesh"
+    },
+
+    {
+      "sno": 4,
+      "name": "Assam"
+    },
+
+    {
+      "sno": 5,
+      "name": "Bihar"
+    },
+
+    {
+      "sno": 6,
+      "name": "Chandigarh"
+    },
+
+    {
+      "sno": 7,
+      "name": "Chhattisgarh"
+    },
+
+    {
+      "sno": 8,
+      "name": "Dadra And Nagar Haveli"
+    },
+
+    {
+      "sno": 9,
+      "name": "Delhi"
+    },
+
+    {
+      "sno": 10,
+      "name": "Goa"
+    },
+
+    {
+      "sno": 11,
+      "name": "Gujarat"
+    },
+
+    {
+      "sno": 12,
+      "name": "Haryana"
+    },
+
+    {
+      "sno": 13,
+      "name": "Himachal Pradesh"
+    },
+
+    {
+      "sno": 14,
+      "name": "Jammu And Kashmir"
+    },
+
+    {
+      "sno": 15,
+      "name": "Jharkhand"
+    },
+
+    {
+      "sno": 16,
+      "name": "Karnataka"
+    },
+
+    {
+      "sno": 17,
+      "name": "Kerala"
+    },
+
+    {
+      "sno": 18,
+      "name": "Lakshadweep"
+    },
+
+    {
+      "sno": 19,
+      "name": "Madhya Pradesh"
+    },
+
+    {
+      "sno": 20,
+      "name": "Maharashtra"
+    },
+
+    {
+      "sno": 21,
+      "name": "Manipur"
+    },
+
+    {
+      "sno": 22,
+      "name": "Meghalaya"
+    },
+
+    {
+      "sno": 23,
+      "name": "Mizoram"
+    },
+
+    {
+      "sno": 24,
+      "name": "Nagaland"
+    },
+
+    {
+      "sno": 25,
+      "name": "Odisha"
+    },
+
+    {
+      "sno": 26,
+      "name": "Puducherry"
+    },
+
+    {
+      "sno": 27,
+      "name": "Punjab"
+    },
+
+    {
+      "sno": 28,
+      "name": "Rajasthan"
+    },
+
+    {
+      "sno": 29,
+      "name": "Sikkim"
+    },
+
+    {
+      "sno": 30,
+      "name": "Tamil Nadu"
+    },
+
+    {
+      "sno": 31,
+      "name": "Telangana"
+    },
+
+    {
+      "sno": 32,
+      "name": "Tripura"
+    },
+
+    {
+      "sno": 33,
+      "name": "Uttar Pradesh"
+    },
+
+    {
+      "sno": 34,
+      "name": "Uttarakhand"
+    },
+
+    {
+      "sno": 35,
+      "name": "West Bengal"
+    }
+]

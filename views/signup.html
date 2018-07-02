@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <% include ./partials/head %>
+    </head>
+    <body>
+    	<div class="ui menu" id="menu">
+    		<div id="menuLogo">
+    			<a href="https://sureclaim.in/"><img src="images/logo.png" alt="SureClaim" /></a>
+    		</div>
+    		<div class="right menu">
+    			<div class="item">
+    				<a href="login">Existing User</a>
+    			</div>
+                <div class="item">
+                    <a href="https://sureclaim.in/contact-us/">Contact Us</a>
+                </div>
+    		</div>
+    	</div>
+    	<div class="ui stackable grid" id="signup">
+    	    <div class="eight wide column" id="signupLeft">
+    	        <div class="ui basic segment">
+    	        	<h2 class="ui header">
+    	        		Online self-help tool to prepare health insurance claim
+    	        	</h2>
+    	        	<dl>
+    	        		<dt>One powerful solution</dt>
+    	        		<dd>
+    	        			Common claim tool for any health insurance policy
+    	        		</dd>
+    	        		<dt>Hassle free claim preparation</dt>
+    	        		<dd>
+    	        			Simplifies claim preparation in easy-to-follow
+    	        			steps. Reduces chances of delay in claim
+    	        			processing
+    	        		</dd>
+    	        		<dt>Maximum reimbursement of your claim</dt>
+    	        		<dd>
+    	        			Intelligent algorithm to help you submit every
+    	        			supporting document  in claim
+    	        		</dd>
+    	        	</dl>
+    	        </div>
+    	    </div>
+    	    <div class="eight wide column" id="signupRight">
+                <p class="beta">
+                    We're in BETA
+                </p>
+    	    	<div class="ui basic segment">
+    	        	<div class="ui large form">
+                        <div class="ui center aligned secondary segment">
+                        	<h3 class="ui header">
+                        		Register here to prepare claim
+                        	</h3>
+                            <div class="field">
+                                <div class="ui left icon input">
+                                    <i class="user icon"></i>
+                                    <input type="text" id="userName" placeholder="Your Name" />
+                                    
+                                </div>
+                                <p class="ui error" id="signupUserNameError"></p>
+                            </div>
+                            <div class="field">
+                                <div class="ui left icon input">
+                                    <i class="mobile icon"></i>
+                                    <input type="number" id="userMobile" 
+                                            placeholder="Your Mobile Number e.g. 9342659495" />
+                                    
+                                </div>
+                                <p class="ui error" id="signupPhoneError"></p>
+                            </div>
+                            <!-- <div class="field">
+                                <div class="ui left icon input">
+                                    <i class="at icon"></i>
+                                    <input type="email" id="userEmail" placeholder="Your Email" />
+                                </div>
+                            </div> -->
+                            <div class="field">
+                                <!-- <input type="checkbox" name="conditions" id="condition"> -->
+                                <label for="condition">
+                                	By creating your account, you hereby agree
+                                	to follow these <a target="_blank" href="https://sureclaim.in/terms-conditions/">terms and conditions</a>
+                                </label>
+                            </div>
+                            <button class="ui fluid large primary submit button" id="signupButton">
+                            	Prepare My Claim
+                            </button>
+                            <h4>
+                            	Already have an account? <a href="login">Login</a>
+                            </h4>
+                        </div>
+                        <div class="ui error" id="errorMessage"></div>
+                    </div>
+    	        </div>
+    	    </div>
+
+            <div class="ui small modal" id="verifyOtpModal">
+                <i class="close icon"></i>
+                <div class="header">
+                    Verify OTP
+                </div>
+                <div class="ui form content">
+                    <div class="ui  grid">
+                        <div class="column">
+                            <div class="field">
+                                <label>Enter OTP</label>
+                                <input type="number" id="otpInputText" />
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="actions">
+                    <div class="ui cancel button">Cancel</div>
+                    <div class="ui ok button">OK</div>
+                </div>
+            </div>
+            <div>
+        </div>
+    	</div>
+        <div class="footer">
+            <p>
+                <a href="https://sureclaim.in/privacy-policy/">Privacy Policy</a> | 
+                <a href="https://sureclaim.in/terms-conditions/">Terms & Condition</a>
+            </p>
+        </div>
+        <script src="js/signup.js"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114969987-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-114969987-1');
+
+
+            // Submit Signup form by press enter button
+            var inputUser = document.getElementById('userName');
+            var inputMobile = document.getElementById('userMobile');
+
+            // Enter presses after entering into userName input
+            inputUser.addEventListener("keyup", function(event) {
+                if (event.keyCode == 13) {
+                    document.getElementById('signupButton').click();
+                }
+            });
+
+            // Press enter after entering into userMobile input
+            inputMobile.addEventListener("keyup", function(event) {
+                if (event.keyCode == 13) {
+                    document.getElementById('signupButton').click();
+                }
+            });
+        </script>
+	</body>
+</html>

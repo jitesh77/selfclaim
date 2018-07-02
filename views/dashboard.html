@@ -1,0 +1,1098 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <% include ./partials/head %>
+        <script>
+            // storing states, insurers and tpas data in globals
+            globals.tpas = <%- JSON.stringify(tpas) %>;
+            globals.insurers = <%- JSON.stringify(insurers) %>;
+            globals.states = <%- JSON.stringify(states) %>;
+            globals.scid = <%- scid %>
+        </script>
+
+        <!-- Appzi: Capture Insightful Feedback -->
+        <script async src="https://app.appzi.io/bootstrap/bundle.js?token=ug23R"></script>
+        <!-- End Appzi -->
+    </head>
+    <body>
+        <div class="ui menu" id="menu">
+            <div id="menuLogo">
+                <a href="https://sureclaim.in/"><img src="images/logo.png" alt="SureClaim" /></a>
+            </div>
+            <div class="right menu">
+                <div class="item">
+                    Claim for Admission Date: <%= new Date(admissionDate).toDateString() %>
+                </div>
+                <div class="item">
+                    <a href="home">Home</a>
+                </div>
+                <div class="item">
+                    <a href="#">Buy Claim Assistance Plan</a>
+                </div>
+                <div class="item">
+                    <a href="#">Help</a>
+                </div>
+                <div class="item">
+                    <a href="logout">Logout</a>
+                </div>
+            </div>
+        </div>
+        <div class="ui grid">
+            <div class="row">
+                <div class="ui fluid ordered steps" id="progressSteps">
+                    <a class="active step" data-tab="insurance">
+                        <div class="content">
+                            <div class="title">Insurance</div>
+                        </div>
+                    </a>
+                    <a class="disabled step" data-tab="treatment">
+                        <div class="content">
+                            <div class="title">Treatment</div>
+                        </div>
+                    </a>
+                    <a class="disabled step" data-tab="bills">
+                        <div class="content">
+                            <div class="title">Bills</div>
+                        </div>
+                    </a>
+                    <a class="disabled step" data-tab="receipts">
+                        <div class="content">
+                            <div class="title">Receipts</div>
+                        </div>
+                    </a>
+                    <a class="disabled step" data-tab="checklist">
+                        <div class="content">
+                            <div class="title">Checklist</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div id="dashboardTabs">
+            <div class="ui active tab" data-tab="insurance">
+                <div class="ui basic segment">
+                    <h3 class="ui header">
+                        Your Insurance Plan Information
+                    </h3>
+                    <p>
+                        <b>Kindly fill in accurate details for selection of correct claim form</b>
+                    </p>
+                    <div class="ui stackable grid">
+                        <div class="eight wide column">
+                            <div class="ui form" id="insuranceTabForm">
+                                <div class="field">
+                                    <label>Patient Name<sup class="requiredStar">*</sup></label>
+                                    <input type="text" data-field="patientName" />
+                                </div>
+                                <div class="field">
+                                    <label>Hospital Name<sup class="requiredStar">*</sup></label>
+                                    <input type="text" data-field="hospitalName" />
+                                </div>
+                                <div class="field">
+                                    <label>State in which Hospital is located<sup class="requiredStar">*</sup></label>
+                                    <input type="text" data-field="hospitalState" list="states" />
+                                </div>
+                                <datalist id="states">
+                                    <% for (let i = 0; i < states.length; i++) { %>
+                                        <option value="<%= states[i].name %>" />
+                                    <% } %>
+                                </datalist>
+                                <div class="field">
+                                    <label>City in which Hospital is located<sup class="requiredStar">*</sup></label>
+                                    <input type="text" data-field="hospitalCity" />
+                                </div>
+                                <div class="field">
+                                    <label>Date of admission<sup class="requiredStar">*</sup></label>
+                                    <input type="date" data-field="dateOfAdmission" />
+                                </div>
+                                <div class="field">
+                                    <label>Date of discharge<sup class="requiredStar">*</sup></label>
+                                    <input type="date" data-field="dateOfDischarge" />
+                                </div>
+                                <div class="field">
+                                    <label for="patientGender">
+                                        Patient's gender<sup class="requiredStar">*</sup>
+                                    </label>
+                                </div>
+                                <div class="inline fields">
+                                    <div class="field">
+                                        <div class="ui radio checkbox">
+                                            <input type="radio" name="patientGender" checked="" 
+                                                    value="male" tabindex="0" class="hidden">
+                                            <label>Male</label>
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <div class="ui radio checkbox">
+                                            <input type="radio" name="patientGender" 
+                                                    value="female" tabindex="0" class="hidden">
+                                            <label>Female</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label>Patient's DOB<sup class="requiredStar">*</sup></label>
+                                    <input type="date" data-field="patientDob" />
+                                </div>
+                                <div class="field">
+                                    <label>Patient's occupation</label>
+                                    <select class="ui dropdown" data-field="patientOccupation">
+                                        <option value="service">Service</option>
+                                        <option value="retired">Retired</option>
+                                        <option value="self employed">Self Employed</option>
+                                        <option value="new born">New Born</option>
+                                        <option value="home maker">Home Maker</option>
+                                        <option value="student">Student</option>
+                                        <option value="other">Other</option>
+                                    </select>
+                                </div>
+                                <div class="ui segment">
+                                    <p>Enter address for postal communication<sup class="requiredStar">*</sup></p>
+                                    <div class="three fields">
+                                        <div class="field">
+                                            <label>Line 1<sup class="requiredStar">*</sup></label>
+                                            <input type="text" data-field="communicationAddressLine1" />
+                                        </div>
+                                        <div class="field">
+                                            <label>Line 2</label>
+                                            <input type="text" data-field="communicationAddressLine2" />
+                                        </div>
+                                        <div class="field">
+                                            <label>City<sup class="requiredStar">*</sup></label>
+                                            <input type="text" data-field="communicationAddressCity" />
+                                        </div>
+                                    </div>
+                                    <div class="three fields">
+                                        <div class="field">
+                                            <label>State<sup class="requiredStar">*</sup></label>
+                                            <input type="text" data-field="communicationAddressState" />
+                                        </div>
+                                        <div class="field">
+                                            <label>PIN<sup class="requiredStar">*</sup></label>
+                                            <input type="number" data-field="communicationAddressPin" />
+                                        </div>
+                                    </div>
+                                    <div class="three fields">
+                                        <div class="field" style="width: 40%;">
+                                            <label>Phone No.<sup class="requiredStar">*</sup></label>
+                                            <input type="number" data-field="communicationAddressPhone" />
+                                        </div>
+                                        <div class="field" style="width: 60%;">
+                                            <label>Email<sup class="requiredStar">*</sup></label>
+                                            <input type="text" data-field="communicationAddressEmail" />
+                                        </div>
+                                    </div>
+                                    <div class="field hidden">
+                                        <label>Address Id</label>
+                                        <input type="number" data-field="communicationInfoAddressId" />
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label>Corporate Name (If Applicable)</label>
+                                    <input type="text" data-field="corporateName" />
+                                </div>
+                                <div class="field">
+                                    <label>Employee ID (If Applicable)</label>
+                                    <input type="text" data-field="employeeId" />
+                                </div>
+                                <div class="field">
+                                    <label for="isPatientAlsoPolicyHolder">
+                                        Is Patient also the Main Policyholder / Proposer / Employee?
+                                        <div class="ui right floated tiny icon button" 
+                                                data-content="Select yes if patient himself is main policyholder.">
+                                          <i class="help icon"></i>
+                                        </div>
+                                    </label>
+                                </div>
+                                <div class="inline fields">
+                                    <div class="field">
+                                        <div class="ui radio checkbox">
+                                            <input type="radio" name="isPatientAlsoPolicyHolder" 
+                                                    value="yes" tabindex="0" class="hidden">
+                                            <label>Yes</label>
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <div class="ui radio checkbox">
+                                            <input type="radio" name="isPatientAlsoPolicyHolder" checked="" 
+                                                    value="no" tabindex="0" class="hidden">
+                                            <label>No</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div id="policyHolderInfoSegment" class="ui segment">
+                                    <div class="field">
+                                        <label>Main Policyholder / Proposer / Employee Name<sup class="requiredStar">*</sup></label>
+                                        <input type="text" data-field="policyHolderName" />
+                                    </div>
+                                    <div class="field">
+                                        <label>
+                                            Relationship of Patient with Main Policyholder/Employee<sup class="requiredStar">*</sup>
+                                            <div class="ui right floated tiny icon button" 
+                                                    data-content="How is patient related to insurance owner (Policyholder)">
+                                              <i class="help icon"></i>
+                                            </div>
+                                        </label>
+                                        <p>
+                                            Choose Self if Patient himself is Policyholder/Proposer/Employee<sup class="requiredStar">*</sup>
+                                        </p>
+                                        <select class="ui dropdown" data-field="patientRelationshipWithPolicyHolder">
+                                            <!-- <option value="self">Self</option> -->
+                                            <option value="spouse">Spouse</option>
+                                            <option value="child">Child</option>
+                                            <option value="father">Father</option>
+                                            <option value="mother">Mother</option>
+                                            <option value="others">Other</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <label>Type Your Insurance Provider<sup class="requiredStar">*</sup><sup class="requiredStar">*</sup></label>
+                                    <input type="text" data-field="insurerId" list="insererId" />
+                                </div>
+                                <datalist id="insererId">
+                                    <% for (let i = 0; i < insurers.length; i++) { %>
+                                        <option value="<%= insurers[i].name %>" />
+                                    <% } %>
+                                </datalist>
+                                <div class="field">
+                                    <label>Type Your TPA (Third Party Administrator)<sup class="requiredStar">*</sup></label>
+                                    <input type="text" data-field="tpaId" list="tpaId" />
+                                </div>
+                                <datalist id="tpaId">
+                                    <option value="NA">Not Applicable</option>
+                                    <% for (let i = 0; i < tpas.length; i++) { %>
+                                        <option value="<%= tpas[i].name %>" />
+                                    <% } %>
+                                </datalist>
+                                <div class="field">
+                                    <label>
+                                        Policy Number
+                                        <div class="ui right floated tiny icon button" 
+                                                data-content="Policy Number is present on insurance card">
+                                          <i class="help icon"></i>
+                                        </div>
+                                    </label>
+                                    <p>
+                                        Enter policy number valid during hospital admission
+                                        of the patient
+                                    </p>
+                                    <input type="text" data-field="policyNumber" />
+                                </div>
+                                <div class="field">
+                                    <label>
+                                        Insurer Customer ID
+                                        <div class="ui right floated tiny icon button" 
+                                                data-content="Customer ID of policy holder issued by Insurance company">
+                                          <i class="help icon"></i>
+                                        </div>
+                                    </label>
+                                    <p>
+                                        Customer ID of Main Policyholder / Proposer / Employee as per Policy
+                                    </p>
+                                    <input type="text" data-field="insurerCustomerId" />
+                                </div>
+                                <div class="field">
+                                    <label>
+                                        TPA Customer ID
+                                        <div class="ui right floated tiny icon button" 
+                                                data-content="TPA Customer ID is present on card issued by TPA">
+                                          <i class="help icon"></i>
+                                        </div>
+                                    </label>
+                                    <p>
+                                        Enter TPA Customer/Member/Card ID valid during hospital admission
+                                        of the patient
+                                    </p>
+                                    <input type="text" data-field="tpaCustomerId" />
+                                </div>
+                                <button class="ui primary button" id="insuranceTabSaveButton">Save</button>
+                                <button class="ui primary right labeled icon button" id="insuranceTabSaveAndMoveButton">
+                                    <i class="right arrow icon"></i>
+                                    Save and Move to Next
+                                </button>
+                            </div>
+                            <div class="error" id="insuranceTabErrorMessage"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui tab" data-tab="treatment">
+                <div class="ui basic segment">
+                    <h3 class="ui header">
+                        Treatment details of patient
+                    </h3>
+                    <p>
+                        <b>This information is meant for Section-D of claim form</b>
+                    </p>
+                    <div class="ui stackable grid">
+                        <div class="eight wide column">
+                            <div class="ui form" id="treatmentTabForm">
+                                <div class="field">
+                                    <label>Reason for Hospitalization<sup class="requiredStar">*</sup></label>
+                                    <p>
+                                        Choose Injury in case of accidents, falls or fights. In
+                                        other cases, pick Illness or Delivery as the case may be.
+                                    </p>
+                                    <select class="ui dropdown" data-field="reasonForHospitalization">
+                                        <option value="illness">Illness</option>
+                                        <option value="maternity">Maternity</option>
+                                        <option value="injury">Injury</option>
+                                    </select>
+                                </div>
+                                <div id="illnessFields">
+                                    <div class="field">
+                                        <label>
+                                            Date on which disease was first detected
+                                            <div class="ui right floated tiny icon button" 
+                                                    data-content="When did disease come to notice?">
+                                              <i class="help icon"></i>
+                                            </div>
+                                        </label>
+                                        <input type="date" data-field="diseaseFirstDetectedDate" />
+                                    </div>
+                                    <div class="field">
+                                        <label>Treatment/Surgery/Procedure Name<sup class="requiredStar">*</sup></label>
+                                        <input type="text" data-field="treatmentName" />
+                                    </div>
+                                </div>
+                                <div id="maternityFields">
+                                    <div class="field">
+                                        <label>
+                                            Date of delivery<sup class="requiredStar">*</sup>
+                                            <div class="ui right floated tiny icon button" 
+                                                    data-content="When did delivery occur?">
+                                              <i class="help icon"></i>
+                                            </div>
+                                        </label>
+                                        <input type="date" data-field="dateOfDelivery" />
+                                    </div>
+                                    <div class="field">
+                                        <label>Type of Delivery<sup class="requiredStar">*</sup></label>
+                                        <select class="ui dropdown" data-field="typeOfDelivery">
+                                            <option value="c-section delivery">C-Section Delivery</option>
+                                            <option value="normal">Normal</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div id="injuryFields">
+                                    <div class="field">
+                                        <label>
+                                            Date of injury<sup class="requiredStar">*</sup>
+                                            <div class="ui right floated tiny icon button" 
+                                                    data-content="When did injury occur?">
+                                              <i class="help icon"></i>
+                                            </div>
+                                        </label>
+                                        <input type="date" data-field="dateOfInjury" />
+                                    </div>
+                                    <div class="grouped fields">
+                                        <label for="causeOfInjury">
+                                            Cause of injury<sup class="requiredStar">*</sup>
+                                            <div class="ui right floated tiny icon button" 
+                                                    data-content="How did injury occur?">
+                                              <i class="help icon"></i>
+                                            </div>
+                                        </label>
+                                        <div class="field">
+                                            <div class="ui radio checkbox">
+                                                <input type="radio" name="causeOfInjury" checked="" 
+                                                        value="self inflicted" tabindex="0" class="hidden">
+                                                <label>Self inflicted</label>
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="ui radio checkbox">
+                                                <input type="radio" name="causeOfInjury" 
+                                                        value="road traffic accident" tabindex="0" class="hidden">
+                                                <label>Road traffic accident</label>
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="ui radio checkbox">
+                                                <input type="radio" name="causeOfInjury" 
+                                                        value="drugs/alcohol consumption" tabindex="0" class="hidden">
+                                                <label>Substance Abuse / Alcohol Consumption</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <label for="isCaseMedicoLegal">
+                                            Is the case medico-legal<sup class="requiredStar">*</sup>
+                                            <div class="ui right floated tiny icon button" 
+                                                    data-content="Select yes if injury was medico-legal">
+                                              <i class="help icon"></i>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="inline fields">
+                                        <div class="field">
+                                            <div class="ui radio checkbox">
+                                                <input type="radio" name="isCaseMedicoLegal" 
+                                                        value="yes" tabindex="0" class="hidden">
+                                                <label>Yes</label>
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="ui radio checkbox">
+                                                <input type="radio" name="isCaseMedicoLegal" checked="" 
+                                                        value="no" tabindex="0" class="hidden">
+                                                <label>No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <label for="wasCaseReportedToPolice">
+                                            If yes, was it reported to Police<sup class="requiredStar">*</sup>
+                                            <div class="ui right floated tiny icon button" 
+                                                    data-content="Select yes if injury was reported to police.">
+                                              <i class="help icon"></i>
+                                            </div>
+                                        </label>
+                                    </div>
+                                    <div class="inline fields">
+                                        <div class="field">
+                                            <div class="ui radio checkbox">
+                                                <input type="radio" name="wasCaseReportedToPolice" 
+                                                        value="yes" tabindex="0" class="hidden">
+                                                <label>Yes</label>
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="ui radio checkbox">
+                                                <input type="radio" name="wasCaseReportedToPolice" checked="" 
+                                                        value="no" tabindex="0" class="hidden">
+                                                <label>No</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <br />
+                                <div class="grouped fields">
+                                    <label for="roomCategory">
+                                        Room category occupied by patient<sup class="requiredStar">*</sup>
+                                        <div class="ui right floated tiny icon button" 
+                                                data-content="Type of your hospitalization room">
+                                          <i class="help icon"></i>
+                                        </div>
+                                    </label>
+                                    <div class="field">
+                                        <div class="ui radio checkbox">
+                                            <input type="radio" name="roomCategory" checked="" 
+                                                    value="twin sharing" tabindex="0" class="hidden">
+                                            <label>Twin Sharing</label>
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <div class="ui radio checkbox">
+                                            <input type="radio" name="roomCategory" 
+                                                    value="single occupancy" tabindex="0" class="hidden">
+                                            <label>Single occupancy</label>
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <div class="ui radio checkbox">
+                                            <input type="radio" name="roomCategory" 
+                                                    value="general ward" tabindex="0" class="hidden">
+                                            <label>General ward / 3 or more beds per room</label>
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <div class="ui radio checkbox">
+                                            <input type="radio" name="roomCategory" 
+                                                    value="day care" tabindex="0" class="hidden">
+                                            <label>Day care</label>
+                                        </div>
+                                    </div>
+                                </div>
+                                <button class="ui primary button" id="treatmentTabSaveButton">Save</button>
+                                <button class="ui primary right labeled icon button" id="treatmentTabSaveAndMoveButton">
+                                    <i class="right arrow icon"></i>
+                                    Save and Move to Next
+                                </button>
+                            </div>
+                            <div class="error" id="treatmentTabErrorMessage">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="ui tab" data-tab="bills">
+                <div class="ui basic segment">
+                    <h3 class="ui header">
+                        Bills to be claimed
+                    </h3>
+                    
+                    <div class="ui stackable grid bill-section">
+                        <p class="positive">
+                            <b>
+                            Please provide complete details for our system to suggest all supporting documents:
+                            </b>
+                        </p>
+                        <div class="sixteen wide column">
+                            <div class="ui form">
+                                <span class="positive">
+                                    Total no of bills: <span id="totalNoOfBills">0</span>
+                                    &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                    Total bill amount: <span id="totalBillAmount">0</span>
+                                </span>
+                                <div class="ui segment" id="billsTabFormSegment"> 
+                                    <div class="three fields">
+                                        <div class="field">
+                                            <label>Bill Date<sup class="requiredStar">*</sup></label>
+                                            <input type="date" data-field="billDate" />
+                                        </div>
+                                        <div class="field">
+                                            <label>Bill Number<sup class="requiredStar">*</sup></label>
+                                            <input type="text" data-field="billNumber" />
+                                        </div>
+                                        <div class="field">
+                                            <label>Bill Amount<sup class="requiredStar">*</sup></label>
+                                            <input type="number" data-field="billAmount" />
+                                        </div>
+                                    </div>
+                                    <div class="three fields">
+                                        <div class="field">
+                                            <label>Issued By<sup class="requiredStar">*</sup></label>
+                                            <input type="text" data-field="issuedBy" />
+                                        </div>
+                                    </div>
+                                    <div class="field">
+                                        <label for="billType">
+                                            Bill Type<sup class="requiredStar">*</sup>
+                                        </label>
+                                    </div>
+                                    <div class="inline fields">
+                                        <div class="field">
+                                            <div class="ui radio checkbox">
+                                                <input type="radio" name="billType" checked="" 
+                                                        value="Pharmacy" tabindex="0" class="hidden">
+                                                <label>Pharmacy</label>
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="ui radio checkbox">
+                                                <input type="radio" name="billType" 
+                                                        value="Hospital Main Bill" tabindex="0" class="hidden">
+                                                <label>Hospital main bill</label>
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <div class="ui radio checkbox">
+                                                <input type="radio" name="billType" 
+                                                        value="Others" tabindex="0" class="hidden">
+                                                <label>Other</label>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div id="billServices" class="hidden">
+                                        <div class="field">
+                                            <label>Select services charged in this bill</label>
+                                        </div>
+                                        <div class="inline fields">
+                                            <div class="field">
+                                                <div class="ui checkbox">
+                                                    <input type="checkbox" data-field="isConsultation" 
+                                                            tabindex="0" class="hidden">
+                                                    <label>Consultation</label>
+                                                </div>
+                                            </div>
+                                            <div class="field">
+                                                <div class="ui checkbox">
+                                                    <input type="checkbox" data-field="isBloodBank"
+                                                            tabindex="0" class="hidden">
+                                                    <label>Blood Bank</label>
+                                                </div>
+                                            </div>
+                                            <div class="field">
+                                                <div class="ui checkbox">
+                                                    <input type="checkbox" data-field="isLabOrDiagnostics" 
+                                                            tabindex="0" class="hidden">
+                                                    <label>Lab/Diagnostics</label>
+                                                </div>
+                                            </div>
+                                            <div class="field">
+                                                <div class="ui checkbox">
+                                                    <input type="checkbox" data-field="isOtherServices"
+                                                            tabindex="0" class="hidden">
+                                                    <label>Other Services</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="field hidden">
+                                        <label>Bill Id</label>
+                                        <input type="number" data-field="billId" />
+                                    </div>
+                                    <div class="field">
+                                        <button class="ui button" id="billsTabAddButton">
+                                            <i class="plus icon"></i> 
+                                            Add
+                                        </button>
+                                        <button class="ui button" id="billsTabUpdateButton">
+                                            <i class="edit icon"></i> 
+                                            Update
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="error" id="billsTabErrorMessage">
+                                </div>
+                                <button class="ui primary right labeled icon button" id="billsTabSaveAndMoveButton">
+                                    <i class="right arrow icon"></i>
+                                    Save and Move to Next
+                                </button>
+                            </div>
+                            <p>
+                                <b>Bills details entered by you</b>
+                            </p>
+                            <!-- Bill table -->
+                            <div class="table-responsive">
+                                <table class="ui single line unstackable selectable striped celled table" 
+                                        id="billsTableReceiptsTab">
+                                    <thead>
+                                        <tr>
+                                            <th>Bill ID</th>
+                                            <th>Bill Date</th>
+                                            <th>Bill Number</th>
+                                            <th>Bill Amount</th>
+                                            <th>Issued By</th>
+                                            <th>Bill Type</th>
+                                            <th>Edit</th>
+                                            <th>Delete</th>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                            <!-- Bill table End -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="ui tab" data-tab="receipts">
+                <div class="ui basic segment">
+                    <h3 class="ui header">
+                        Receipt details for Bills
+                    </h3>
+                    
+                    <div class="ui basic segment" id="receiptSegment">
+                        <p class="positive">
+                            <b>Please provide complete details of payment Receipts for Bills-</b>
+                        </p>
+                        <div class="ui stackable grid margin-bottom">
+                            <div class="sixteen wide column">
+                                <div class="ui form">
+                                    <span class="positive">
+                                        Total no of receipts: <span id="totalNoOfReceipts">0</span>
+                                        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                                        Total receipt amount: <span id="totalReceiptAmount">0</span>
+                                    </span>
+                                    <div class="ui segment" id="receiptFormSegment">
+                                        <div class="three fields">
+                                            <div class="field">
+                                                <label>Receipt Date</label>
+                                                <input type="date" data-field="receiptDate" />
+                                            </div>
+                                            <div class="field">
+                                                <label>Receipt Number</label>
+                                                <input type="text" data-field="receiptNumber" />
+                                            </div>
+                                            <div class="field">
+                                                <label>Receipt Amount</label>
+                                                <input type="number" data-field="receiptAmount" />
+                                            </div>
+                                        </div>
+                                        <div class="field">
+                                            <label for="receiptType">
+                                                Receipt Type
+                                            </label>
+                                        </div>
+                                        <div class="inline fields">
+                                            <div class="field">
+                                                <div class="ui radio checkbox">
+                                                    <input type="radio" name="receiptType" checked="" 
+                                                            value="Advance Receipt" tabindex="0" class="hidden">
+                                                    <label>Advance Receipt</label>
+                                                </div>
+                                            </div>
+                                            <div class="field">
+                                                <div class="ui radio checkbox">
+                                                    <input type="radio" name="receiptType" 
+                                                            value="Final Receipt" tabindex="0" class="hidden">
+                                                    <label>Final Receipt</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="field hidden">
+                                            <label>Receipt Id</label>
+                                            <input type="number" data-field="receiptId" />
+                                        </div>
+                                        <div class="field">
+                                            <button class="ui button" id="receiptsTabAddButton">
+                                                <i class="plus icon"></i> 
+                                                Add
+                                            </button>
+                                            <button class="ui button" id="receiptsTabUpdateButton">
+                                                <i class="edit icon"></i>
+                                                Update
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="error" id="receiptsTabErrorMessage">
+                                </div>
+                            </div>
+                            <button class="ui primary right labeled icon button" 
+                                    id="receiptsTabSaveAndMoveButton">
+                                <i class="right arrow icon"></i>
+                                Save and Move to Next
+                            </button>
+                        </div>
+                    </div>
+                    <p>
+                        <b>Receipts details entered by you-</b>
+                    </p>
+                    <!-- Receipts Table  -->
+                    <div class="table-responsive">
+                        <table class="ui single line unstackable selectable striped celled table" 
+                                    id="receiptsTableReceiptsTab">
+                            <thead>
+                                <tr>
+                                    <th>Receipt ID</th>
+                                    <th>Receipt Date</th>
+                                    <th>Receipt Number</th>
+                                    <th>Receipt Amount</th>
+                                    <th>Receipt Type</th>
+                                    <th>Edit</th>
+                                    <th>Delete</th>
+                                </tr>
+                            </thead>
+                            <tbody>
+                            </tbody>
+                        </table>
+                    </div>
+                    <!-- Receipts Table End  -->
+                </div>
+            </div>
+
+            <div class="ui tab" data-tab="checklist">
+                <div class="ui basic segment">
+                    <h3 class="ui header">
+                        Here is summary of your claim information
+                        <span class="primary-color">
+                            <i class="sync icon" id="syncChecklistIcon"></i>
+                        </span>
+                    </h3>
+                    <p>
+                        <b>
+                        Review information entered by you. Review information entered by you. To see how your claim form looks like, click Preview my Claim button. Preview carries a watermark.  
+                        <br>
+                        To remove the watermark, you must finalize claim by entering bank details which need to be printed on your claim form.</b>
+                    </p>
+                    <p class="primary-color bold noteLine">
+                        <sup class="requiredStar">*</sup>Please note: For safety your account, we do not store bank account details on our server.
+                        <br>
+                         <span> Enter your bank details only when you want to download final copy of your claim form.
+                         </span>
+                    </p>
+
+                    </p>
+                    <h4 class="no-margin preview-claim-h">
+                        <a href="dashboard/claim-preview" class="preview-claim">Preview my Claim &nbsp;<i class="eye icon"></i></a>
+                        <a href="dashboard/finalize-claim" class="preview-claim finalizeClaimButton">Finalize Claim</a>
+                    </h4>
+                    <div class="claim-preview-hidden">
+                        <a href="dashboard/claim-preview" class="preview-claim">Preview my Claim &nbsp;<i class="eye icon"></i></a>
+                    </div>
+                    <div class="claim-preview-hidden">
+                        <a href="dashboard/finalize-claim" class="preview-claim finalizeClaimButton">Finalize Claim</a>
+                    </div>
+                    <div class="ui basic segment info-checklist-segment" id="insuranceInfoChecklistSegment">
+                        <p class="primary-color bold">
+                            Insurance
+                            <span>
+                                <i class="pencil alternate icon" data-goToTab="1"></i>
+                            </span>
+                        </p>
+                        <div class="ui stackable grid">
+                            <div class="five wide column">
+                                <span class="fieldLabel">
+                                    Patient Name
+                                </span>
+                                <span class="fieldValue" data-field="patientNameChecklist"></span>
+                            </div>
+                            <div class="five wide column">
+                                <span class="fieldLabel">
+                                    Hospital Name
+                                </span>
+                                <span class="fieldValue" data-field="hospitalNameChecklist"></span>
+                            </div>
+                            <div class="five wide column">
+                                <span class="fieldLabel">
+                                    Hospital City
+                                </span>
+                                <span class="fieldValue" data-field="hospitalCityChecklist"></span>
+                            </div>
+                            <div class="five wide column">
+                                <span class="fieldLabel">
+                                    Hospital State
+                                </span>
+                                <span class="fieldValue" data-field="hospitalStateChecklist"></span>
+                            </div>
+                            <div class="five wide column">
+                                <span class="fieldLabel">
+                                    Date of admission
+                                </span>
+                                <span class="fieldValue" data-field="dateOfAdmissionChecklist"></span>
+                            </div>
+                            <div class="five wide column">
+                                <span class="fieldLabel">
+                                    Date of discharge
+                                </span>
+                                <span class="fieldValue" data-field="dateOfDischargeChecklist"></span>
+                            </div>
+                            <div class="five wide column">
+                                <span class="fieldLabel">
+                                    Patient's gender
+                                </span>
+                                <span class="fieldValue" data-field="patientGenderChecklist"></span>
+                            </div>
+                            <div class="five wide column">
+                                <span class="fieldLabel">
+                                    Patient's DOB
+                                </span>
+                                <span class="fieldValue" data-field="patientDobChecklist"></span>
+                            </div>
+                            <div class="five wide column">
+                                <span class="fieldLabel">
+                                    Patient's Occupation
+                                </span>
+                                <span class="fieldValue" data-field="patientOccupationChecklist"></span>
+                            </div>
+                            <div class="five wide column">
+                                <span class="fieldLabel">
+                                    Postal communication address
+                                </span>
+                                <span class="fieldValue" data-field="communicationAddressChecklist"></span>
+                            </div>
+                            <div class="five wide column">
+                                <span class="fieldLabel">
+                                    Phone No
+                                </span>
+                                <span class="fieldValue" data-field="communicationPhoneChecklist"></span>
+                            </div>
+                            <div class="five wide column">
+                                <span class="fieldLabel">
+                                    Email ID
+                                </span>
+                                <span class="fieldValue" data-field="communicationEmailChecklist"></span>
+                            </div>
+                            <div class="five wide column">
+                                <span class="fieldLabel">
+                                    Corporate Name
+                                </span>
+                                <span class="fieldValue" data-field="corporateNameChecklist"></span>
+                            </div>
+                            <div class="five wide column">
+                                <span class="fieldLabel">
+                                    Employee ID
+                                </span>
+                                <span class="fieldValue" data-field="employeeIdChecklist"></span>
+                            </div>
+                            <div class="five wide column">
+                                <span class="fieldLabel">
+                                    Policyholder Name
+                                </span>
+                                <span class="fieldValue" data-field="policyHolderNameChecklist"></span>
+                            </div>
+                            <div class="five wide column">
+                                <span class="fieldLabel">
+                                    Policyholder Relationship with Patient
+                                </span>
+                                <span class="fieldValue" data-field="policyHolderRelationshipChecklist"></span>
+                            </div>
+                            <div class="five wide column">
+                                <span class="fieldLabel">
+                                    Insurance Provider
+                                </span>
+                                <span class="fieldValue" data-field="insuranceProviderChecklist"></span>
+                            </div>
+                            <div class="five wide column">
+                                <span class="fieldLabel">
+                                    TPA
+                                </span>
+                                <span class="fieldValue" data-field="tpaChecklist"></span>
+                            </div>
+                            <div class="five wide column">
+                                <span class="fieldLabel">
+                                    Policy Number
+                                </span>
+                                <span class="fieldValue" data-field="policyNumberChecklist"></span>
+                            </div>
+                            <div class="five wide column">
+                                <span class="fieldLabel">
+                                    Insurer Customer ID
+                                </span>
+                                <span class="fieldValue" data-field="insurerCustomerIdChecklist"></span>
+                            </div>
+                            <div class="five wide column">
+                                <span class="fieldLabel">
+                                    TPA Customer ID
+                                </span>
+                                <span class="fieldValue" data-field="tpaCustomerIDChecklist"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ui basic segment info-checklist-segment" id="treatmentInfoChecklistSegment">
+                        <p class="primary-color bold">
+                            Treatment
+                            <span>
+                                <i class="pencil alternate icon" data-goToTab="2"></i>
+                            </span>
+                        </p>
+                        <div class="ui stackable grid">
+                            <div class="five wide column">
+                                <span class="fieldLabel">
+                                    Reason for Hospitalization
+                                </span>
+                                <span class="fieldValue" data-field="hospitalizationReasonChecklist"></span>
+                            </div>
+                            <div class="five wide column">
+                                <span class="fieldLabel">
+                                    Date of Injury
+                                </span>
+                                <span class="fieldValue" data-field="dateOfInjuryChecklist"></span>
+                            </div>
+                            <div class="five wide column">
+                                <span class="fieldLabel">
+                                    Cause of Injury
+                                </span>
+                                <span class="fieldValue" data-field="causeOfInjuryChecklist"></span>
+                            </div>
+                            <div class="five wide column">
+                                <span class="fieldLabel">
+                                    Is case medico-legal
+                                </span>
+                                <span class="fieldValue" data-field="isCaseMedicoLegalChecklist"></span>
+                            </div>
+                            <div class="five wide column">
+                                <span class="fieldLabel">
+                                    Was it reported to Police
+                                </span>
+                                <span class="fieldValue" data-field="wasReportedToPoliceChecklist"></span>
+                            </div>
+                            <div class="five wide column">
+                                <span class="fieldLabel">
+                                    Date of delivery
+                                </span>
+                                <span class="fieldValue" data-field="dateOfDeliveryChecklist"></span>
+                            </div>
+                            <div class="five wide column">
+                                <span class="fieldLabel">
+                                    Type of delivery
+                                </span>
+                                <span class="fieldValue" data-field="typeOfDeliveryChecklist"></span>
+                            </div>
+                            <div class="five wide column">
+                                <span class="fieldLabel">
+                                    Disease first detected date
+                                </span>
+                                <span class="fieldValue" data-field="diseaseFirstDetectedDateChecklist"></span>
+                            </div>
+                            <div class="five wide column">
+                                <span class="fieldLabel">
+                                    Treatment name
+                                </span>
+                                <span class="fieldValue" data-field="treatmentNameChecklist"></span>
+                            </div>
+                            <div class="five wide column">
+                                <span class="fieldLabel">
+                                    Room Category
+                                </span>
+                                <span class="fieldValue" data-field="roomCategoryChecklist"></span>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="ui basic segment info-checklist-segment" id="billsChecklistSegment">
+                        <p class="primary-color bold">
+                            Bills
+                            <span>
+                                <i class="pencil alternate icon" data-goToTab="3"></i>
+                            </span>
+                        </p>
+                        <div class="table-responsive">
+                            <table class="ui single line unstackable selectable striped celled table" 
+                                    id="billsTableCheklistTab">
+                                <thead>
+                                    <tr>
+                                        <th>S.No.</th>
+                                        <th>Bill Date</th>
+                                        <th>Bill Number</th>
+                                        <th>Bill Amount</th>
+                                        <th>Issued By</th>
+                                        <th>Bill Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                    <div class="ui basic segment info-checklist-segment" id="receiptsChecklistSegment">
+                        <p class="primary-color bold">
+                            Receipts
+                            <span>
+                                <i class="pencil alternate icon" data-goToTab="4"></i>
+                            </span>
+                        </p>
+                        <div class="table-responsive">
+                            <table class="ui single line unstackable selectable striped celled table" 
+                                    id="receiptsTableChecklistTab">
+                                <thead>
+                                    <tr>
+                                        <th>S.No.</th>
+                                        <th>Receipt Date</th>
+                                        <th>Receipt Number</th>
+                                        <th>Receipt Amount</th>
+                                        <th>Receipt Type</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+
+                </div>
+                <h4 class="no-margin preview-claim-h">
+                    <a href="dashboard/claim-preview" class="preview-claim">
+                        Preview my Claim &nbsp;<i class="eye icon"></i>
+                    </a>
+                </h4>
+            </div>
+
+        </div>
+
+        <!-- todo:// Use gulp and minify -->
+        <script src="js/insuranceTab.js"></script>
+        <script src="js/treatmentTab.js"></script>
+        <script src="js/billsTab.js"></script>
+        <script src="js/receiptsTab.js"></script>
+        <script src="js/checklistTab.js"></script>
+
+        <!-- Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114969987-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-114969987-1');
+        </script>
+    </body>
+</html>

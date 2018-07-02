@@ -1,0 +1,21 @@
+[
+	{
+		"mode": "Cash"
+	},
+	{
+		"mode": "Cheque"
+	},
+	{
+		"mode": "NEFT"
+	},
+	{
+		"mode": "IMPS"
+	},
+	{
+		"mode": "Razorpay"
+	},
+	{
+		"mode": "PayTM"
+	}
+
+]

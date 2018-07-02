@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <% include ../partials/head %>
+        <style type="text/css">
+            .pushable {
+                height: unset !important;
+                min-height: 100%;
+            }
+        </style>
+    </head>
+    <body>
+        <div class="ui menu" id="menu">
+            <a class="item" id="hamburgerMenuIcon">
+                <i class="sidebar icon"></i> Menu
+            </a>
+
+            <div id="menuLogo">
+                <a href="https://sureclaim.in/"><img src="images/logo.png" alt="SureClaim" /></a>
+            </div>
+            <div class="right menu">
+                <div class="item">
+                    Hi <%= name %> !!
+                </div>
+                <div class="item">
+                    <a href="logout">Logout</a>
+                </div>
+            </div>
+        </div>
+        <div class="ui bottom attached segment pushable" id="homeContainerSegment">
+            <div class="ui inverted labeled icon left inline vertical sidebar menu">
+                <a class="item" data-tab="all-selfClaims">
+                    <i class="tasks icon"></i> All SelfClaims
+                </a>
+                <a class="item" data-tab="all-users">
+                    <i class="group icon"></i> All Users
+                </a>
+                <a class="item" data-tab="all-services">
+                    <i class="suitcase icon"></i> Services
+                </a>
+                <a class="item" data-tab="all-proforma">
+                    <i class="file alternate icon"></i> Billing
+                </a>
+                <a class="item" data-tab="my-profile">
+                    <i class="user icon"></i> My Profile
+                </a>
+            </div>
+            <div class="pusher container segment" id="adminDashboard">
+                <div class="ui tab active" data-tab="all-selfClaims">
+                    <div class="ui container">
+                        <h4 class="ui header">SelfClaims</h4>
+                        <div class="table-responsive">
+                            <table class="ui single line unstackable selectable striped celled table" 
+                                    id="selfClaimsTable">
+                                <thead>
+                                    <tr>
+                                        <th>scid</th>
+                                        <th>Progress Level</th>
+                                        <th>ssid</th>
+                                        <th>Mobile</th>
+                                        <th>Name</th>
+                                        <th>Gender</th>
+                                        <th>Email</th>
+                                        <th>Created At</th>
+                                        <th>Form Link</th>
+                                        <th>Excel Data</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="ui tab" data-tab="all-users">
+                    <div class="ui container">
+                        <h4 class="ui header">Users</h4>
+                        <div class="table-responsive">
+                            <table class="ui single line unstackable selectable striped celled table" 
+                                    id="usersTable">
+                                <thead>
+                                    <tr>
+                                        <th>ssid</th>
+                                        <th>Mobile</th>
+                                        <th>Name</th>
+                                        <th>Gender</th>
+                                        <th>Email</th>
+                                        <th>Created At</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui tab" data-tab="all-services">
+                    <div class="ui container">
+                        <h4 class="ui header">Services</h4>
+                        <div class="table-responsive">
+                            <table class="ui single line unstackable selectable striped celled table" 
+                                    id="adminServices">
+                                <thead>
+                                    <tr>
+                                        <th>S.No</th>
+                                        <th>Service Name</th>
+                                        <th>Service Type</th>
+                                        <th>Price</th>
+                                        <!-- <th>Edit</th>-->
+                                        <th>Delete</th> 
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                </tbody>
+                            </table>
+                        </div>
+                        <div class="ui form" style="margin-top: 2%">
+                            <div class="ui segment" id="adminServices">
+                                <div class="three fields">
+                                    <div class="field">
+                                        <label>Service Name<sup class="requiredStar">*</sup></label>
+                                        <input type="text" data-field="serviceName" />
+                                        <p id="serviceNameError"  class="error-field"></p>
+                                    </div>
+                                    <div class="field">
+                                        <label>Service Type<sup class="requiredStar">*</sup></label>
+                                        <input type="text" data-field="serviceType" />
+                                        <p id="serviceTypeError"  class="error-field"></p>
+                                    </div>
+                                    <div class="field">
+                                        <label>Price<sup class="requiredStar">*</sup></label>
+                                        <input type="number" data-field="servicePrice" />
+                                        <p id="servicePriceError"  class="error-field"></p>
+                                    </div>
+                                </div>
+                                <div>
+                                    <div class="field">
+                                        <button class="ui button" id="serviceAddButton">
+                                            <i class="plus icon"></i> Add
+                                        </button>
+                                        <button class="ui button" id="serviceUpdateButton">
+                                            <i class="edit icon"></i> Update
+                                        </button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui tab" data-tab="all-proforma" id="proformas">
+                    <div class="ui container">
+                        <h4 class="ui header">Proforma</h4>
+                        <div class="table-responsive">
+                            <div class="search-criteria" id="searchBar">
+                                <h2>Search Criteria</h2>
+                                <div class="ui form">
+                                    <div class="four fields">
+                                        <div class="field">
+                                            Profroma Date From:
+                                        </div>
+                                        <div class="field">
+                                            <input type="date" data-field="proformaDateFrom" name="">
+                                            <p class="error-field" id="proformaDateFromError"></p>
+                                        </div>
+                                        <div class="field">
+                                            Proforma Date To:
+                                        </div>
+                                        <div class="field">
+                                            <input type="date" data-field="proformaDateTo" name="">
+                                            <p class="error-field" id="proformaDateToError"></p>
+                                        </div>
+                                    </div>
+                                    <div class="proforma-search-button">
+                                        <button class="ui primary button view-claim" id="proformaDateWiseSearch">
+                                            Search
+                                        </button>
+                                        <button class="ui primary button view-claim" id="proformaDateWiseSearchClear">
+                                            Clear
+                                        </button>
+                                    </div>
+                                </div>
+                                <div class="ui form">
+                                    <div class="four fields">
+                                        <div class="field">
+                                            Profroma Period:
+                                        </div>
+                                        <div class="field">
+                                            <select id="proformaPeriod">
+                                                <option value="0" selected="true" disabled="disabled">Select</option>
+                                                <option value="1">Last 1 Month</option>
+                                                <option value="2">Last 2 Months</option>
+                                                <option value="3">Today</option>
+                                            </select>
+                                            <p id="proformaPeriodError" class="error-field"></p>
+                                        </div>
+                                        <div class="field"></div>
+                                        <div class="field">
+                                            <button class="ui primary button view-claim" id="proformaPeriodButton">
+                                                Search
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="ui form">
+                                    <div class="four fields">
+                                        <div class="field">
+                                            Search by Mobile Number:
+                                        </div>
+                                        <div class="field">
+                                            <div class="ui action input">
+                                                <input type="number" data-field="searchByMobile" placeholder="Mobile Number...">
+                                                <button class="ui primary button view-claim" id="searchByMobileButton">Search</button>
+                                            </div>
+                                            <p id="searchByMobileError" class="error-field"></p>
+                                        </div>
+                                        <div class="field">Search By Patient Name:</div>
+                                        <div class="field">
+                                            <div class="ui action input">
+                                                <input type="text" data-field="searchByPatient" placeholder="Patient Name...">
+                                                <button id="searchByPatientButton" class="ui primary button view-claim">Search</button>
+                                            </div>
+                                            <p id="searchByPatientError" class="error-field"></p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="proforma-result">
+                                <div class="header-section-proforma">
+                                    <div class="ui form sort-by">
+                                        <div class="field">
+                                            <select onchange="proformaSort(this.value)">
+                                                <option value="" selected="true" disabled="disabled">Sort By</option>
+                                                <option value="date_DESC">Date DESC</option>
+                                                <option value="date_ASC">Date ASC</option>
+                                                <option value="name_DESC">Patient Name DESC</option>
+                                                <option value="name_ASC">Patient Name ASC</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                    <a href="admin/proforma" style="float: right;margin-bottom: 1%;">
+                                        <button class="ui active button view-claim" id="">
+                                            <i class="plus icon" style="color: white;"></i>
+                                            Create New Proforma
+                                        </button>
+                                    </a>
+                                </div>
+                                <table class="ui single line unstackable selectable striped celled table" id="allProformasTable">
+                                    <p id="searchMessage" class="search-message">
+                                        <b><span data-field="totalNumbers"></span></b>
+                                        <span data-field="message"></span>
+                                        <span id="proformaSearchClearAllButton">
+                                            <button class="ui primary button view-claim clear-all-button" id="proformaSearchClearAll">Clear All</button>
+                                        </span>
+                                    </p>
+                                    <thead>
+                                        <tr>
+                                            <td>S.No</td>
+                                            <td>User Name</td>
+                                            <td>Patient Name</td>
+                                            <td>Mobile</td>
+                                            <td>Created At</td>
+                                            <td>Invoice</td>
+                                            <td>Edit</td>
+                                            <td>Delete</td>
+                                        </tr>
+                                    </thead>
+                                    <tbody>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="ui tab" data-tab="my-profile" id="myProfile">
+                    <div class="ui container">
+                        <h4 class="ui header">My Profile</h4>
+                        <div class="ui form">
+                            <div class="fields">
+                                <div class="four wide field">
+                                    <label>Mobile Number</label>
+                                    <input type="number" name="mobile" disabled="true" />
+                                </div>
+                                <div class="four wide field">
+                                    <label>Name</label>
+                                    <input type="text" name="name" />
+                                </div>
+                                <div class="four wide field">
+                                    <label>Email</label>
+                                    <input name="email" type="email" />
+                                </div>
+                                <div class="four wide field">
+                                    <label>Organisation</label>
+                                    <input type="text" name="organisation" />
+                                </div>
+                            </div>
+                            <div class="inline fields">
+                                <label for="gender">Gender:</label>
+                                <div class="field">
+                                    <div class="ui radio checkbox">
+                                        <input type="radio" name="gender" checked="" value="male" class="hidden">
+                                        <label>Male</label>
+                                    </div>
+                                </div>
+                                <div class="field">
+                                    <div class="ui radio checkbox">
+                                        <input type="radio" name="gender" value="female" class="hidden">
+                                        <label>Female</label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <button class="fluid ui primary button" id="updateProfileButton">Update Profile</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <script src="js/adminDashboard.js"></script>
+    </body>
+</html>

@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <% include ./partials/head %>
+
+        <!-- Appzi: Capture Insightful Feedback -->
+        <script async src="https://app.appzi.io/bootstrap/bundle.js?token=ug23R"></script>
+        <!-- End Appzi -->
+    </head>
+    <body>
+        <div class="ui menu" id="menu">
+            <div id="menuLogo">
+                <a href="https://sureclaim.in/"><img src="images/logo.png" alt="SureClaim" /></a>
+            </div>
+            <div class="right menu">
+                <div class="item">
+                    <a href="dashboard">Dashboard</a>
+                </div>
+                <div class="item">
+                    <a href="#">Buy Claim Assistance Plan</a>
+                </div>
+                <div class="item">
+                    <a href="#">Help</a>
+                </div>
+                <div class="item">
+                    <a href="logout">Logout</a>
+                </div>
+            </div>
+        </div>        
+        <div id="dashboardTabs">
+            <div class="ui active tab" data-tab="insurance">
+                <div class="ui basic segment">
+                    <h3 class="ui header">
+                        Finalize Claim
+                    </h3>
+                    <p>
+                        <b>Enter bank details of Primary Insured. Claim money is always settled in account of Primary Insured.
+                        <br>
+                        Primary Insured: He/she is the person who pays the premium / the proposer as per policy records / the employee in case of Corporate policy.</b>
+                    </p>
+                    <div class="ui stackable grid">
+                        <div class="eight wide column">
+                            <div class="ui form" id="finalizeTabForm">
+                                <div class="field">
+                                    <label>Bank Name & Branch<sup class="requiredStar">*</sup></label>
+                                    <input type="text" data-field="bankName" />
+                                    <p id="bankName" class="error-field"></p>
+                                </div>
+                                <div class="field">
+                                    <label>Account Number<sup class="requiredStar">*</sup></label>
+                                    <input type="number" data-field="accountNumber" />
+                                    <p id="accountNumber" class="error-field"></p>
+                                </div>
+                                <div class="field">
+                                    <label>Name as per bank record<sup class="requiredStar">*</sup></label>
+                                    <input type="text" data-field="nameAsPerBankRecord" list="states" />
+                                    <p id="nameAsPerBankRecord" class="error-field"></p>
+                                </div>                               
+                                <div class="field">
+                                    <label>IFSC Code<sup class="requiredStar">*</sup></label>
+                                    <input type="text" data-field="ifscCode" />
+                                    <p id="ifscCode" class="error-field"></p>
+                                </div>
+                                <div class="field">
+                                    <label>PAN Number</label>
+                                    <input type="text" data-field="panNumber" required="" />
+                                    <p id="panNumber" class="error-field"></p>
+                                </div>
+                    
+                                <button class="ui primary button" id="downloadClaimFormButton">
+                                    Print my Claim Form <i class="right print icon"></i>
+                                </button>
+                                <a href="dashboard">
+                                    <button class="ui primary right labeled icon button">
+                                        Return to checklist
+                                    </button>
+                                </a>                                
+                            </div>
+                            <div class="error" id="bankDetailsErrorMessage"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        <script src="js/bankDetails.js"></script>   
+
+        <!-- Google Analytics -->
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114969987-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-114969987-1');
+        </script>
+    </body>
+</html>

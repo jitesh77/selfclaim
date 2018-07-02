@@ -1,0 +1,354 @@
+/**
+ * @author Manoj Kumar<manojswami600@gmail.com>
+ */
+
+@media screen and (max-width: 800px) {
+	.fill-form-section {
+		width: 95% !important
+	}
+
+	.selfclaim-div {
+		width: unset;
+		width: 95% !important;
+	    margin-left: 5%;
+	    margin-top: 5%;
+	}
+
+	.calculator-heading {
+	    padding-top: 20%;
+	}
+
+	.section-one {
+		border-bottom: 1px solid #e2e2e2;
+	}
+
+	.section-two {
+    	border-right: unset;
+    }
+
+    .two.fields.section-one {
+	    border: unset;
+	}
+
+	.result-section {
+	    width: 92% !important;
+	    margin-left: 4%;
+	    margin-top: 3%;
+	}
+
+	.try-again-align {
+		width: 85% !important;
+	}
+
+	.bottom-align {
+		margin-top: 3% !important;
+	    text-align: center !important;
+	    width: 99% !important;
+	    margin-left: unset !important;
+	}
+
+	.extra-column {
+		display: none;
+	}
+
+	.field.section-two {
+	    border-right: unset !important;
+	}
+}
+
+@media screen and (min-width: 800px) {
+	.fill-form-section {
+		width: 65% !important;
+	}
+
+	.selfclaim-div {
+		width: 34% !important;
+	}
+
+	.calculator-heading {
+	    padding-top: 8%;
+	}
+
+	.result-section {
+	    width: 70% !important;
+	    margin-left: 14%;
+	}
+}
+ 
+#menu {
+	position: fixed;
+    width: 100%;
+    z-index: 99999;
+}
+
+.ui.grid {
+    margin-top: 4rem !important;
+}
+
+.ui.menu .item {
+	font-weight: bold !important;
+}
+
+.field :disabled {
+	opacity: 0.85 !important;
+}
+
+.calculator-heading {
+	text-align: center;
+}
+
+.calculator-heading h2 {
+	margin: 0;
+}
+
+.calculator-heading h3 {
+	margin: 0.5em;
+    opacity: 0.7;
+}
+
+.fill-form-section {
+	padding-left: 5%;
+	margin-right: 1%;
+}
+
+.selfclaim-div {
+    padding-right: 5%;
+}
+
+.heading {
+	background: #d9edf7;
+    padding: 6px;
+    border-radius: 5px;
+    border: 1px solid #6fbce2;
+    text-align: center;
+    color: #0b6077;
+}
+
+.selfclaim-section {
+	margin-top: 30%;
+	margin-bottom: 30%;
+	text-align: center;
+	padding: 25px;
+	border-radius: 5px;
+	background-color: #d9edf7;
+	color: #31708f;
+	border: 1px solid #66b6da;
+}
+
+.selfclaim-section button {
+	background: #29cdff;
+	border: unset;
+	padding: 11px 70px;
+	color: white;
+	font-size: 17px;
+	font-weight: bold;
+	box-shadow: inset 0 3px 5px rgba(0,0,0,.125);
+	border-radius: 5px;
+	cursor: pointer;
+}
+
+.selfclaim-section button:hover {
+	border: 1px solid #29cdff;
+	background: white;
+	color: #29cdff;
+	box-shadow: 0px 0px 1px 1px;
+	text-shadow: 1px 1px #0000d4;
+}
+
+.bills-section table tr th {
+    color: white !important;
+    background: black !important;
+    border: 1px solid #333333 !important;
+}
+
+.bills-section {
+	border: 1px solid #d0d0d0;
+    border-radius: 5px;
+    padding-top: 2%;
+    padding-left: 1%;
+    padding-right: 1%;
+    padding-bottom: 3%;
+    margin-top: 3%;
+}
+
+.proceed-button {
+	text-align: right;
+	margin-top: 5%
+}
+
+.proceed-button button {
+	border: unset;
+    background: #ff7000;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 011px 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    letter-spacing: 0.0725em;
+    border: 1px solid #ff7000;
+}
+
+.proceed-button button:hover {
+	background: white;
+    color: #ff7000;
+    border: 1px solid #ff7000;
+    letter-spacing: 0.0725em;
+}
+
+.calculator-button {
+	text-align: center;
+	margin-top: 10%
+}
+
+.calculator-button button {
+	border: unset;
+    background: #61c700;
+    color: white;
+    font-weight: bold;
+    font-size: 16px;
+    padding: 011px 40px;
+    border-radius: 5px;
+    cursor: pointer;
+    letter-spacing: 0.0725em;
+}
+
+.calculator-button button:hover {
+	background: white;
+    color: #61c700;
+    border: 1px solid #61c700;
+    box-shadow: 1px 1px;
+    text-shadow: 1px 1px black;
+    letter-spacing: 0.0725em;
+}
+
+.ui.form .inline.fields {
+	margin-bottom:  0 !important;
+}
+
+.ui.radio.checkbox .box, .ui.radio.checkbox label {
+	cursor: pointer !important;
+}
+
+#claimCalculatorBillTable {
+	margin-top: 2%;
+}
+
+.try-again-align {
+	width: 70%;
+    margin-left: 14%;
+    text-align: right;
+    margin-bottom: 0;
+}
+
+.try-again-align a {
+	border: 1px solid #4183c4;
+    padding: 8px 15px;
+    border-radius: 5px;
+    font-weight: bold;
+    border-bottom-width: 3px;
+}
+
+.bottom-align {
+	margin-bottom: 5% !important;
+}
+
+.first-column {
+	width: 50% !important;
+}
+
+.checkbox-type {
+	vertical-align: middle !important;
+    margin-left: 5px;
+    margin-right: 20px;
+}
+
+.right-side {
+	border-left: unset !important;
+}
+
+.section-one {
+	border: 1px solid #e2e2e2;
+    border-radius: 3px;
+    margin: unset;
+    margin-bottom: unset !important;
+    border-bottom: unset;
+}
+
+.section-two {
+	border-right: 1px solid #e2e2e2;
+    padding: 10px;
+}
+
+.highlight {
+	font-weight: bold;
+    font-size: 15px;
+}
+
+.result-section table tr th {
+    color: white !important;
+    background: black !important;
+    border: 1px solid #333333 !important;
+}
+
+.table-data {
+	width: 100%;
+    margin-top: 3%;
+    margin-bottom: 4%;
+}
+
+.highlighted {
+	background: #d9edf7;
+    color: #1a559c;
+    font-size: 15px;
+    font-weight: bold;
+}
+
+.email-send-button {
+	background: #0497c3 !important;
+	color: white !important;
+	font-weight: bold !important;
+}
+
+.email-input {
+	border: 1px solid #0497c3 !important;
+}
+
+.bottom-section2 .input {
+	width: 70% !important;
+}
+
+.bottom-section1 {
+	text-align: center;
+	background: #d9edf7;
+    color: #31708f;
+}
+
+.bottom-section2 {
+	text-align: center;
+	border: 1px solid #cccccc;
+}
+
+button.fill-form-button {
+    border: unset;
+    padding: 11px 25px;
+    border-radius: 4px;
+    background: #0497c3;
+    color: white;
+    font-weight: bold;
+    margin-top: 5%;
+    cursor: pointer;
+}
+
+button.fill-form-button:hover {
+	color: #0880a5;
+	background: white;
+	border: 1px solid  #0880a5;
+}
+
+.email-success-message {
+	display: block;
+    font-size: 15px;
+    color: #344db7;
+    font-weight: bold;
+}

@@ -1,0 +1,330 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<% include ./partials/head %>
+<link rel="stylesheet" type="text/css" href="css/home.css">
+</head>
+<body>
+
+  <div class="ui menu home-menu" id="menu">
+    <div id="menuLogo">
+      <a href="https://sureclaim.in/"><img src="images/logo.png" alt="SureClaim"></a>
+    </div>
+    <div class="right menu">
+	    <div class="item">
+	    	Hi&nbsp;<span data-field="userNameHeading"></span> &nbsp;!!
+	    </div>
+	    <div class="item">
+	    	<a href="#">Buy Claim Assistance Plan</a>
+	    </div>
+	    <div class="item">
+	    	<a href="#">Help</a>
+	   	</div>
+	    <div class="item">
+	    	<a href="logout">Logout</a>
+	    </div>
+    </div>
+  </div>
+
+  <!-- Mobile Mode -->
+  <div class="mobile-menu">
+    <div id="mySidenav" class="sidenav">
+      <a href="javascript:void(0)" class="closebtn" onclick="closeNav()">&times;</a>
+      <div class="menu-head-image sidenav-logo">
+        <a href="https://sureclaim.in/" class="mobile-menu-logo">
+          <img src="images/logo.png" alt="SureClaim">
+        </a>
+      </div>
+      <div>
+      <a class="tab-links" onclick="openTab(event, 'home')" id="defaultOpen">
+        <i class="tachometer alternate icon"></i>
+         Dashboard
+       </a>
+      <a class="tab-links" onclick="openTab(event, 'selfClaim')">
+        <i class="tasks icon"></i>
+         My Claims
+      </a>       
+      <a class="tab-links" onclick="openTab(event, 'service')">
+        <i class="suitcase icon"></i>
+        My Service Orders
+      </a>
+      <a class="tab-links" onclick="openTab(event, 'profile')">
+        <i class="user outline icon"></i>
+        Profile
+      </a>
+      <a class="tab-links" onclick="openTab(event, 'refer')">
+        <i class="share alternate icon"></i>
+        Refer Friends
+      </a>
+      <a class="tab-links" onclick="openTab(event, 'write')">
+        <i class="comment alternate icon"></i>
+        Write to us
+      </a>
+    </div>
+    </div>
+
+    <div class="header-bar">
+      <div class="menu-head-nav">
+        <span style="" onclick="openNav()">&#9776; </span>
+      </div>
+      <div class="menu-head-image">
+        <a href="https://sureclaim.in/" class="mobile-menu-logo">
+          <img src="images/logo.png" alt="SureClaim">
+        </a>
+      </div>
+      <div class="menu-head-text">   
+        <a href="dashboard">Logout</a>
+      </div>
+    </div>
+  </div>
+  <!-- Desktop Mode -->
+  <div class="tab">
+  	<button class="tab-links defaultActive" onclick="openTab(event, 'home')" id="defaultOpen">
+	  	<i class="tachometer alternate icon"></i> 
+	  	Dashboard
+  	</button>
+  	<button class="tab-links" onclick="openTab(event, 'selfClaim')">
+  		<i class="tasks icon"></i> 
+  		My Claims
+  	</button>
+  	<button class="tab-links" onclick="openTab(event, 'service')">
+  		<i class="suitcase icon"></i> 
+  		My Service Orders
+  	</button>
+  	<button class="tab-links" onclick="openTab(event, 'profile')">
+  		<i class="user outline icon"></i> 
+  		Profile
+  	</button>
+  	<button class="tab-links" onclick="openTab(event, 'refer')">
+  		<i class="share alternate icon"></i> 
+  		Refer Friends
+  	</button>
+  	<button class="tab-links" onclick="openTab(event, 'write')">
+  		<i class="comment alternate icon"></i> 
+  		Write to us
+  	</button>
+  </div>
+
+  <!-- Tabs -->
+  <div id="home" class="tab-content">
+  	<h2 class="tab-heading">Dashboard</h2>
+  	<div class="table-responsive">
+	  	<table class="ui single line unstackable selectable striped celled table" id="dashboardClaims">		  	
+        <thead>
+		    	<tr>
+		    		<th>Total Claims</th>
+			    	<th>Total Services</th>
+			    	<th>Total Amount Claimed</th>
+			    	<th>Total Amount Approved</th>
+		  		</tr>
+		  	</thead>
+		  	<tbody>
+		    	<tr>
+		      		<td data-field="totalClaims"></td>
+		      		<td>0</td>
+		      		<td>--</td>
+		      		<td>--</td>
+		    	</tr>    
+		  	</tbody>
+	  	</table>
+    </div>
+    
+    <div class="create-new-selfclaim-button" style="margin-top: 2%;">
+      <a href="/selfclaim/dashboard/welcome">
+        <button class="ui active button view-claim" id="createNewSelfClaim">
+          <i class="plus icon" style="color: white;"></i>
+           Create New Claim
+        </button>
+      </a>
+    </div>
+    <div class="table-responsive">
+      <table class="ui single line unstackable selectable striped celled table" id="userClaimsDataTable">  
+        <thead>
+          <tr>
+            <th>S.No</th>
+            <th>Claim Name</th>
+            <th>Policy Holder</th>
+            <th>Patient</th>
+            <th>Patient DOB</th>
+            <th>Admission Date</th>
+            <th>Hospital</th>
+            <th>Insurance Company</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+    <div class="ui stackable grid">
+        <div class="ui form">
+          <div class="two fields new-section">
+            <div class="field">
+              <div class="ui positive message">
+                <div class="header">
+                  Insurer Queries are no longer worries
+                </div>
+                  <p>Don’t lose sleep when your insurer hands over a long list of queries. Our experts simplify these for you and help you respond confidently for a successful claim</p>
+                  <button class="positive ui button">Explore</button>
+              </div>
+            </div>
+            <div class="field">
+              <div class="ui positive message">
+                <div class="header">
+                  Get experts to prepare your claim
+                </div>
+                  <p>Enjoy personalized claim experience with assistance from SureClaim’s Claim Advisors. Let our experts complete your claim so you get time to focus on your priorities.</p>
+                  <button class="positive ui button">Explore</button>
+              </div>
+            </div>
+          </div>
+        </div>
+    </div>
+  </div>
+  <div id="selfClaim" class="tab-content">
+    <h2 class="tab-heading">SelfClaims</h2>
+    <div class="create-new-selfclaim-button">
+      <a href="/selfclaim/dashboard/welcome">
+        <button class="ui active button view-claim" id="createNewSelfClaim">
+          <i class="plus icon" style="color: white;"></i>
+           Create New Claim
+        </button>
+      </a>
+    </div>
+    <div class="table-responsive">
+      <table class="ui single line unstackable selectable striped celled table" id="userClaimsDataTable">  
+        <thead>
+          <tr>
+            <th>S.No</th>
+            <th>Claim Name</th>
+            <th>Policy Holder</th>
+            <th>Patient</th>
+            <th>Patient DOB</th>
+            <th>Admission Date</th>
+            <th>Hospital</th>
+            <th>Insurance Company</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="service" class="tab-content">
+    <h2 class="tab-heading">My Service Orders</h2>
+    <div class="table-responsive">
+      <table class="ui single line unstackable selectable striped celled table" id="userServicesTable">      
+        <thead>
+          <tr>
+            <th>S.No</th>
+            <th>Service</th>
+            <th>Order Date</th>
+            <th>Order Status</th>
+            <th></th>
+          </tr>
+        </thead>
+        <tbody>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div id="profile" class="tab-content">
+  	<h2 class="tab-heading">Update Profile</h2>
+  	    <div class="ui container">
+            <div class="ui form"  id="updateUserProfile">
+                <div class="three fields">
+                    <div class="field">
+                        <label>Name</label>
+                        <input type="text" name="name" data-field="userName" />
+                    </div>
+                    <div class="field">
+                      <label>Mobile Number</label>
+                        <input type="number" name="mobile" data-field="userNumber" readonly="" />
+                    </div>
+                </div>
+                <div class="three fields">
+                    <div class="field">
+                        <label>Email</label>
+                        <input name="email" type="email" data-field="userEmail"/>
+                    </div>
+                </div>
+                <!-- <h3 class="ui header">Change Password</h3>
+                <div class="three fields">
+                    <div class="field">
+                        <label>Current Password</label>
+                        <input type="password" name="password" data-field="userCurrentPassword" />
+                    </div>
+                    <div class="field">
+                        <label>New Password</label>
+                        <input type="password" name="password" data-field="userNewPassword" />
+                    </div>
+                </div> -->
+<!--                 <div class="three fields">
+                    <div class="inline fields">
+                        <label for="gender">Gender:</label>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="gender" checked="" value="male" class="hidden" >
+                                <label>Male</label>
+                            </div>
+                        </div>
+                        <div class="field">
+                            <div class="ui radio checkbox">
+                                <input type="radio" name="gender" value="female" class="hidden">
+                                <label>Female</label>
+                            </div>
+                        </div>
+                    </div>
+                </div> -->
+            </div>
+            <button class="ui primary button" id="updateProfileButton">Save</button>
+        </div>
+  </div>
+
+  <div id="refer" class="tab-content">
+    <h2 class="tab-heading">Refer Friends</h2>
+    <a href="whatsapp://send?text=Try SelfClaim: https://sureclaim.in/selfclaim" data-action="share/whatsapp/share">
+      <img src="images/share/whatsapp.png" style="border-radius: 22px;">
+    </a>
+    <a href="http://www.facebook.com/sharer.php?u=https://sureclaim.in/selfclaim" target="_blank"">
+      <img src="images/share/facebook.png">
+    </a>
+    <a href="">
+      <img src="images/share/linkedin.png">
+    </a>
+    <a href="">
+      <img src="images/share/email.png">
+    </a>
+    <a href="">
+      <img src="images/share/twitter.png">
+    </a>
+  </div>
+
+  <div id="write" class="tab-content">
+  	<h2 class="tab-heading">Write to Us</h2>
+    <div class="ui form">
+        <div class="field">
+          <label>Subject</label>
+          <div class="two fields">
+          <div class="field">
+            <input type="text" name="shipping[first-name]" placeholder="Subject..">
+          </div>
+        </div>
+      </div>
+      <div class="two field textarea-field">
+        <div class="field">
+          <label>Write Message</label>
+          <textarea rows="5"></textarea>
+        </div>
+      </div>
+      <button class="ui primary button" id="sendMessageButton"><i class="location arrow icon"></i> Send</button>
+    </div>
+  </div>
+
+</body>
+<script type="text/javascript" src="js/home.js"></script>
+</html>
+

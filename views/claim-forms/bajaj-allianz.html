@@ -1,0 +1,691 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Claim form preview</title>
+        <base href="/selfclaim/" />
+        <link rel="shortcut icon" href="images/favicon.ico" />
+        <link href="bower_components/jquery-toast-plugin/dist/jquery.toast.min.css" rel="stylesheet"/>
+        <link rel="stylesheet" href="css/claimPreview.css">
+        <script src="bower_components/jquery/dist/jquery.min.js"></script>
+        <script src="bower_components/jquery-toast-plugin/dist/jquery.toast.min.js"></script>
+        <script src="js/globals.js"></script>      
+        <style type="text/css">
+            @media print {
+        .group {
+            -webkit-print-color-adjust: exact; 
+        }}
+       .heading{
+        padding-left: 1%;
+        
+       }
+       .heading h2{
+        border-bottom: 1px solid black;
+        margin-right: 1%;
+        margin-bottom: 0.5%;
+       }
+       .heading1{
+        font-weight: bold;
+       }
+        .group { 
+            display: table;
+            width: 100%;
+            margin: 0 auto;
+            text-align: center;
+            background: #b70f0f;
+            color: white;
+            font-weight: bold;
+            padding-top: 4px;
+            padding-bottom: 4px;
+            margin-bottom: 0.5%;
+            margin-top: 2% !important;
+        } 
+        
+        .details-section{
+            margin-bottom: -1%;
+        }
+        .details-section p {
+            font-weight: bold;
+        }
+        .table-head{
+            font-weight: bold;
+        }
+        span.fieldValue {
+            font-weight: bold;
+        }
+        .address{
+            padding-left: 2%;
+        }
+        body{
+            font-weight: unset;
+            font-size: 11px !important;
+        }
+        .CheckboxBill{
+            vertical-align: middle;
+            margin: unset !important;
+            height: 11px;
+        }
+        .pagebreak { 
+            page-break-before: always; 
+        }
+        .info{
+                margin-top: 10%;
+                margin-left: 5%;
+        }
+        .heading-left{
+            width: 60%;
+            position: relative;
+            padding-left: 3%;
+            float: left;
+            text-align: left;
+            margin-bottom: 2%;
+        }
+        .heading-right{
+            width: 30%;
+            position: relative;
+            margin-top: 1.4%;
+            float: right;
+            text-align: right;
+            padding-right: 6%;
+            margin-bottom: 4%;
+        }
+        .heading-right h2{
+            margin: unset;
+        }
+        .heading-left p span{
+            font-weight: bold;
+        }
+        .heading-left h2{
+            margin-bottom: 0;
+        }
+        </style>
+    </head>
+    <body>
+        <div id="" class="row">
+                    
+            <div class="heading-right">
+            <img src="images/logo/bajaj.jpg">
+            <h2>Relationship Beyond Insurance</h2>
+            </div>
+      
+        <div class="heading-left">
+           <h2>Bajaj Allianz General Insurance Company Limited.</h2>
+            <p><span>Regd. & Head Office :</span> GE Plaza, Airport Road, Yerawada, Pune 411 006<br>
+            <span>Email id:</span> customercare@bajajallianz.co.in<br>
+            <span>Toll free no:</span> 1800-209-5858<br>
+            020-30305858</p>
+        </div>       
+        </div>
+<div style="width: 100%">
+.            </div>
+        <div id="detailsOfPrimaryInsured" class="details-section">
+            
+            <p>
+                TO BE FILLED IN BY THE INSURED
+            </p>
+            <p>
+            The issue of this form is not to be taken as an admission of liability
+            </p>
+            <div class="row">
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        a) Policy No.:
+                    </span>
+                    <span class="fieldValue" data-field="policyNumber">
+                    </span>
+                </div>
+
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        b) Company/ TPA ID No:
+                    </span>
+                    <span class="fieldValue" data-field="tpaIdNo">
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        c) Name:
+                    </span>
+                    <span class="fieldValue" data-field="policyHolderName">
+                    </span>
+                </div>
+
+                <div class="two-column">
+                    <span class="fieldLabel">
+                        d) Address:
+                    </span>
+                    <span class="fieldValue" data-field="policyHolderAddress">
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        City:
+                    </span>
+                    <span class="fieldValue" data-field="policyHolderCity">
+                    </span>
+                </div>
+
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        State:
+                    </span>
+                    <span class="fieldValue" data-field="policyHolderState">
+                    </span>
+                </div>
+
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        Pin Code:
+                    </span>
+                    <span class="fieldValue" data-field="policyHolderPin">
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        Phone No.:
+                    </span>
+                    <span class="fieldValue" data-field="policyHolderPhone">
+                    </span>
+                </div>
+
+                <div class="two-column">
+                    <span class="fieldLabel">
+                        Email ID:
+                    </span>
+                    <span class="fieldValue" data-field="policyHolderEmail">
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div id="detailsOfInsuredPersonHospitalized" class="details-section">
+            <p>DETAILS OF INSURED PERSON HOSPITALIZED:</p>
+            <div class="row">
+                <div class="two-column">
+                    <span class="fieldLabel">
+                        a) Name:
+                    </span>
+                    <span class="fieldValue" data-field="patientName">
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        b) Gender:
+                    </span>
+                    <span class="fieldValue" data-field="patientGender">
+                    </span>
+                </div>
+
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        c) Age:
+                    </span>
+                    <span class="fieldValue" data-field="patientAge">
+                    </span>
+                </div>
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        d) Date of Birth:
+                    </span>
+                    <span class="fieldValue" data-field="patientDob">
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        e) Relationship to Primary insured:
+                    </span>
+                    <span class="fieldValue" data-field="patientRelationshipWithPolicyHolder">
+                    </span>
+                </div>
+
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        f) Occupation:
+                    </span>
+                    <span class="fieldValue" data-field="patientOccupation">
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="two-column">
+                    <span class="fieldLabel">
+                        g) Address:
+                    </span>
+                    <span class="fieldValue" data-field="patientAddress">
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        City:
+                    </span>
+                    <span class="fieldValue" data-field="patientCity">
+                    </span>
+                </div>
+
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        State:
+                    </span>
+                    <span class="fieldValue" data-field="patientState">
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        Pin Code:
+                    </span>
+                    <span class="fieldValue" data-field="patientPinCode">
+                    </span>
+                </div>
+
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        Phone:
+                    </span>
+                    <span class="fieldValue" data-field="patientPhone">
+                    </span>
+                </div>
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        Email ID:
+                    </span>
+                    <span class="fieldValue" data-field="patientEmail">
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div id="detailsOfHospitalization" class="details-section">
+            <p>DETAILS OF HOSPITALIZATION:</p>
+            <div class="row">
+                <div class="two-column">
+                    <span class="fieldLabel">
+                        a) Name of Hospital where Admited:
+                    </span>
+                    <span class="fieldValue" data-field="hospitalName">
+                    </span>
+                </div>
+
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        b) Room Category occupied:
+                    </span>
+                    <span class="fieldValue" data-field="hospitalRoomCategory">
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        c) Hospitalization due to: 
+                    </span>
+                    <span class="fieldValue" data-field="hospitalizationReason">
+                    </span>
+                </div>
+
+                <div class="two-column">
+                    <span class="fieldLabel">
+                        d) Date of injury / Date Disease first detected /Date of Delivery:
+                    </span>
+                    <span class="fieldValue" data-field="injuryOrDiseaseOrDeliveryDate">
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        e) Date of Admission: 
+                    </span>
+                    <span class="fieldValue" data-field="dateOfAdmission">
+                    </span>
+                </div>
+
+                <div class="two-column">
+                    <span class="fieldLabel">
+                        f) Date of Discharge:
+                    </span>
+                    <span class="fieldValue" data-field="dateOfDischarge">
+                    </span>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        g) If injury give cause: 
+                    </span>
+                    <span class="fieldValue" data-field="injuryCause">
+                    </span>
+                </div>
+
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        g) If Medico legal-
+                    </span>
+                    <span class="fieldValue" data-field="isMedicoLegal">
+                    </span>
+                </div>
+                <div class="one-column">
+                    <span class="fieldLabel">
+                        h) Reported to Police-
+                    </span>
+                    <span class="fieldValue" data-field="isReportedToPolice">
+                    </span>
+                </div>
+            </div>
+        </div>
+
+        <div id="detailsOfClaim" class="details-section">
+            <p>DETAILS OF CLAIM:</p>
+            <div class="row">
+                <div id="claimBills" class="two-column">
+                    a) Details of the Treatment expenses claimed
+
+                    <div class="row">
+                        <div class="half-column">
+                            <span class="fieldLabel">
+                                i. Pre -hospitalization expenses
+                            </span>
+                            <span class="fieldValue" data-field="preHospitalizationExpense">
+                            </span> 
+                        </div>
+                        <div class="half-column">
+                            <span class="fieldLabel">
+                                ii. Hospitalization expenses
+                            </span>
+                            <span class="fieldValue" data-field="hospitalizationExpense">
+                            </span> 
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="half-column">
+                            <span class="fieldLabel">
+                                iii. Post-hospitalization expense
+                            </span>
+                            <span class="fieldValue" data-field="postHospitalizationExpense">
+                            </span> 
+                        </div>
+                        <div class="half-column">
+                            <span class="fieldLabel">
+                                iv. Health-Check up cost:
+                            </span>
+                            <span class="fieldValue" data-field="healthCheckupCost">
+                            </span> 
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="half-column">
+                            <span class="fieldLabel">
+                                v. Ambulance Charges:
+                            </span>
+                            <span class="fieldValue" data-field="ambulanceCharge">
+                            </span> 
+                        </div>
+                        <div class="half-column">
+                            <span class="fieldLabel">
+                                vi. Others (code):
+                            </span>
+                            <span class="fieldValue" data-field="otherTreatmentExpenses">
+                            </span> 
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="half-column"> 
+                        </div>
+                        <div class="half-column">
+                            <span class="fieldLabel">
+                                Total
+                            </span>
+                            <span class="fieldValue" data-field="totalTreatmentExpense">
+                            </span> 
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="half-column">
+                            <span class="fieldLabel">
+                                vii. Pre -hospitalization period (days):
+                            </span>
+                            <span class="fieldValue" data-field="preHospitalizationDays">
+                            </span> 
+                        </div>
+                        <div class="half-column">
+                            <span class="fieldLabel">
+                                viii. Post -hospitalization period (days):
+                            </span>
+                            <span class="fieldValue" data-field="postHospitalizationDays">
+                            </span> 
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="half-column">
+                            <span class="fieldLabel">
+                                b) Claim for Domiciliary Hospitalization:
+                            </span>
+                            <span class="fieldValue" data-field="isClaimForDomiciliaryHospitalization">
+                            </span> 
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="half-column">
+                            c) Details of Lump sum / cash benefit claimed:
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="half-column">
+                            <span class="fieldLabel">
+                                i. Hospital Daily cash: 
+                            </span>
+                            <span class="fieldValue" data-field="hospitalDailyCash">
+                            </span> 
+                        </div>
+                        <div class="half-column">
+                            <span class="fieldLabel">
+                                ii. Surgical Cash:
+                            </span>
+                            <span class="fieldValue" data-field="surgicalCash">
+                            </span> 
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="half-column">
+                            <span class="fieldLabel">
+                                iii. Critical Illness benefit: 
+                            </span>
+                            <span class="fieldValue" data-field="criticalIllnessBenefit">
+                            </span> 
+                        </div>
+                        <div class="half-column">
+                            <span class="fieldLabel">
+                                iv. Convalescence:
+                            </span>
+                            <span class="fieldValue" data-field="convalescence">
+                            </span> 
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="half-column">
+                            <span class="fieldLabel">
+                                v. Pre/Post hospitalization Lump sum benefit 
+                            </span>
+                            <span class="fieldValue" data-field="prePostHospitalizationLumpSumBenefit">
+                            </span> 
+                        </div>
+                        <div class="half-column">
+                            <span class="fieldLabel">
+                                vi. Other
+                            </span>
+                            <span class="fieldValue" data-field="otherBenefits">
+                            </span> 
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="half-column"> 
+                        </div>
+                        <div class="half-column">
+                            <span class="fieldLabel">
+                                Total
+                            </span>
+                            <span class="fieldValue" data-field="totalBenefit">
+                            </span> 
+                        </div>
+                    </div>
+                </div>
+
+                <div id="claimDocuments" class="one-column">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Claim Documents Submitted - Check List:</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox" name="" class="CheckboxBill"> Claim form duly signed</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="" class="CheckboxBill"> Copy of the claim intimation, if any</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="" class="CheckboxBill"> Hospital Main Bill</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="" class="CheckboxBill"> Hospital Break-up Bill</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="" class="CheckboxBill"> Hospital Bill Payment Receipty</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="" class="CheckboxBill"> Hospital Discharge Summary</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="" class="CheckboxBill"> Pharmacy Bill</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="" class="CheckboxBill"> Operation Theater Notes</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="" class="CheckboxBill"> ECG</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="" class="CheckboxBill"> Doctor’s request for investigation</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="" class="CheckboxBill"> Investigation Reports (Including CT/ MRI / USG / HPE)</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="" class="CheckboxBill"> Doctor’s Prescriptions</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" name="" class="CheckboxBill"> Others</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+
+        <div id="detailsOfBillsEnclosed" class="details-section">
+            <p>DETAILS OF BILLS ENCLOSED:</p>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Sl. No.</th>
+                        <th>Bill. No.</th>
+                        <th>Date</th>
+                        <th>Issued by</th>
+                        <th>Towards</th>
+                        <th>Amount (Rs)</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
+
+        <div id="declarationByTheInsured" class="details-section">
+            <p>DECLARATION BY THE INSURED:</p>
+            <p>
+                I hereby declare that the information furnished in the claim form is true & correct to the best of my knowledge and belief. If I have made any false or untrue statement, suppression
+                or concealent of any material fact with respect to questions asked in relation to this claim, my right to claim reimbrusement shall be forfeited, I also consent & authorize TPA /
+                Insurance Company, to seek necessary medical information / documents from any hospital / Medical Practitioner who has attended on the person against whom this claim is made.
+                I hereby declare that I have included all the bills / receipts for the purpose of this claim & that I will not be making any supplementary claim except the pre/post-hospitalization
+                claim, if any.
+            </p>
+           <div class="row">
+                <div class="one-column" style="width: 20%">
+                    <span class="fieldLabel">
+                        Date
+                    </span>
+                    <input type="text" name="" style="width: 50%">
+                </div>
+
+                <div class="one-column" style="width: 20%">
+                    <span class="fieldLabel">
+                        Place:
+                    </span>
+                    <input type="text" name="" style="width: 70%">
+                </div>
+
+                <div class="one-column" style="width: 50%;    float: right;
+    text-align: right;">
+                    <span class="fieldLabel">
+                        Signature of the Insured:
+                    </span>
+                    <input type="text" name="" style="height: 3vh;
+    width: 50%;">
+                </div>
+            </div>
+        </div>
+
+        <div id="footer">
+            <button id="generatePdfButton">Print Pdf</button>
+            <button id="returnToFormButton">Return to Form</button>
+        </div>
+
+        <script src="js/claimPreview.js"></script>
+        <script async src="https://www.googletagmanager.com/gtag/js?id=UA-114969987-1"></script>
+        <script>
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+
+            gtag('config', 'UA-114969987-1');
+        </script>
+        <div style="position: relative">
+                <p style="position: fixed; bottom: 0; width:100%; text-align: center"> Generated by https://sureclaim.in/selfclaim
+                </p>
+            </div>
+    </body>
+</html>

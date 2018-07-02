@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+	<script src="https://cdn.jsdelivr.net/alasql/0.3/alasql.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.7.12/xlsx.core.min.js"></script>
+</head>
+<body>
+</body>
+<script type="text/javascript">
+	$(document).ready(function() {
+		var selfClaim = <%- JSON.stringify(selfClaim) %>;
+
+		var address = {
+			Policy_Number : selfClaim.insuranceInfo.policyNumber,
+		 	TPA_Id : selfClaim.insuranceInfo.tpaId,
+		 	Name : selfClaim.policyHolder.name,
+		 	Gender : selfClaim.policyHolder.gender,
+		 	addressLine : selfClaim.communicationInfo.address.line1 +','+ selfClaim.communicationInfo.address.line2,
+		 	city : selfClaim.communicationInfo.address.city,
+		 	pin : selfClaim.communicationInfo.address.pin,
+		 	state : selfClaim.communicationInfo.address.state,
+		 	mobile : selfClaim.communicationInfo.email,
+		 	email : selfClaim.communicationInfo.mobile
+		};
+		var addressArray = new Array(address);
+
+		var hospitalInfo = {
+		 	Hospital_Name : selfClaim.hospitalInfo.name,
+		 	Hospital_City : selfClaim.hospitalInfo.city,
+		 	Hospital_State : selfClaim.hospitalInfo.state,
+		 	Addmission_Date : selfClaim.hospitalInfo.dateOfAddmission,
+		 	Discharge_Date : selfClaim.hospitalInfo.dateOfDischarge,
+		 	Patient_Name : selfClaim.patient.name,
+		 	Gender : selfClaim.patient.gender,
+		 	Patient_Occupation : selfClaim.patient.occupation,
+		 	Patient_Relationship_with_Policy_Holder : selfClaim.patient.patientRelationshipWithPolicyHolder
+		};
+		var hospitalArray = new Array(hospitalInfo);
+
+		var insuranceInfo = {
+		 	Certificate_No : selfClaim.insuranceInfo.certificateNumber,
+		 	Corporate_Name : selfClaim.insuranceInfo.coporateName,
+		 	Employee_Id : selfClaim.insuranceInfo.employeeId,
+		 	Insurer : selfClaim.insuranceInfo.insurer.name,
+		 	TPA : selfClaim.insuranceInfo.tpa.name,
+		 	Policy_Number : selfClaim.insuranceInfo.policyNumber,
+		 	TPA_Id : selfClaim.insuranceInfo.tpaId
+		};
+		var insuranceArray = new Array(insuranceInfo);
+
+		var receipts = selfClaim.receipts;
+		var bills = selfClaim.bills;
+		
+		var opts = [{sheetid:'Policy Information',header:true},{sheetid:'Hospital Info',header:false},{sheetid:'Insurance Info',header:false},{sheetid:'Bills',header:false},{sheetid:'Receipts',header:false}];
+
+		alasql('SELECT * INTO XLSX("Claim-Data.xlsx",?) FROM ?',
+                     [opts,[addressArray,hospitalArray,insuranceArray,bills,receipts]]);
+		window.onfocus=function(){ 
+			window.close();
+		}
+	});
+</script>
+</html>
