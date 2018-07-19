@@ -9,22 +9,6 @@ Install following softwares-
 3. MySql
 4. Git
 
-#### How to execute project
-
-1. Clone the repository `git clone https://varunon9@bitbucket.org/sureclaim/selfclaim.git`
-2. Go to project `cd selfclaim`
-3. Install all nodejs dependencies `npm install`
-4. Move to public folder `cd public`
-5. Install bower dependencies `bower install`
-6. create database 'sureserve' in MySql
-7. Update MySql credentials of your machine in config/config.json (Replace 'root' with your MySql user and 'hiThere!!' with your MySql password.
-8. Install and start redis `sudo service redis start`. (Linux) Check online for Windows
-9. Install nodemon `npm install -g nodemon`
-10. Return to previous directory `cd ..`
-11. Start server `nodemon`
-12. Visit localhost:3000/selfclaim in browser
-
-
 #### How to contribute
 
 1. Create your own branch in repository (follow steps 2 and 3)
